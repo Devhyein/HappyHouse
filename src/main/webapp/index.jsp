@@ -21,8 +21,8 @@
 		}
 	</style>
 </head>
-<%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
+	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<div id="main">
 		<div class="container">
 			<div class="mt-2 mb-2">

@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath }" />
+<!DOCTYPE html>
+<html>
+<%@ include file="/WEB-INF/views/header/header.jsp"%>
+<head>
+<style>
+section {
+	
+}
+
+footer {
+	text-align: left;
+	height: 150px;
+	clear: both;
+	padding: 20px;
+	text-indent: 20px;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="13.bs4.css" />
+<title>회원 정보 확인</title>
+<style type="text/css">
+section {
+	background-color: #e0e0eb;
+	width: 70%;
+	height: 70%;
+	padding: 10% 10% 10% 10%;
+	margin: 10% 10% 10% 10%;
+	border-radius: 15px;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	float: center;
+}
+table{
+	float: center;
+	background-color: #e0e0eb;
+	width: 70%;
+	height: 70%;
+	padding: 10% 10% 10% 10%;
+	margin: 10% 10% 10% 10%;
+	border-radius: 15px;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="container" align="center">
+		<section>
+			<h2>회원 정보 확인</h2>
+			<div>
+				<table class="table">
+					<tbody>			
+							<tr>
+								<td><div class="userId">아이디:</div></td>
+								<td>${housemember.id}</td>
+							</tr>
+							<tr>
+								<td><div class="userPw">비밀번호 :</div></td>
+								<td>${housemember.password}</td>
+							</tr>
+							<tr>
+								<td><div class="userName">이름 :</div></td>
+								<td>${housemember.name}</td>
+							</tr>
+							<tr>
+								<td><div class="userAddr">주소 :</div></td>
+								<td>${housemember.address}</td>
+							</tr>
+							<tr>
+								<td><div class="userPhone">전화번호 :</div></td>
+								<td>${housemember.phone}</td>
+							</tr>						
+					</tbody>
+				</table>
+			</div>
+			<input type="button" class="btn btn-primary"
+				onClick="location.href='${root}/index.jsp'" value="확인">
+			 <input
+				type="button" class="btn btn-primary"
+				onClick="location.href='${root}/user.do/updateform.do?=${housemember.id}'"
+				value="수정"> 
+			<a class="btn btn-primary" href="${root}/user.do/remove.do?=${housemember.id}">삭제</a>
+		</section>
+	</div>
+	<footer class="col-ms-12 rounded mt-1">
+
+		<div class="mt-2 mb-2">
+			<!--  img class="float-left" src="${root}/img/ssafy.jpg" style="width: 10%; padding-left: 20px"-->
+			<h4 style="background-color: #80aaff">Find us</h4>
+			<br>
+			<p>
+				<span class="glyphicon glyphicon-home"> 서울시 강남구 테헤란로 멀티스퀘어</span>
+			</p>
+			<p>
+				<span class="glyphicon glyphicon-phone"> 1544-9001</span>
+			</p>
+			<p>
+				<span class="glyphicon glyphicon-envelope"> admin@ssafy.com</span>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>
