@@ -1,85 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="root" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
-<%@ include file="/WEB-INF/views/header/header.jsp"%>
 <head>
-	<style>
-		section{
-		}
-		footer {
-			text-align:left;
-			height: 150px;
-			clear: both;
-			padding: 20px;
-			text-indent: 20px;
-		}
-	</style>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>로그인</title>
-<style type="text/css">
-		section {
-			background-color: #e0e0eb;
-			width: 70%;
-			height: 70%;
-			margin: 10% 10% 10% 10%;
-			padding: 10% 10% 10% 10%;
-			border-radius: 15px;
-			font-size: 15px;
-			font-weight: bold;
-			margin-bottom: 10px;
-			float: center;
-		}	
-</style>
+	<title>Login V16</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-	<div class="container" align="center" style=" width: 100%">
-		<br>
-	<section>
-		<h2 class="form-signin-heading">로그인</h2>
-		<br>
-	<form id="loginForm" method="post" action="${root}/user.do/login.do">
-		<input type="hidden" name="act" value="loginCheck">
-		<div class="form-group" style="width: 70%">
-			<div class="form-group">				 
-				<input type="text" placeholder="아이디" class="form-control" id="id" name="id">
-			</div>
-			<div class="form-group">
-				<input type="password" placeholder="비밀번호" class="form-control" id="password" name="password">
-			</div>
-		</div>
-		<div class="checkbox">
-			<label>
-				<input type="checkbox" value="remember-me">
-				기억하기
-			</label>
-		</div>
-		
-		<input type="submit" class="btn btn-primary" value="로그인" />
-		<input type="button" class="btn btn-primary"
-			onclick="location.href='${root}/user/join.jsp'" value="회원가입">
-		<input type="button" class="btn btn-primary"
-			onclick="location.href='${root}/user/findPw.jsp'" value="비밀번호 찾기">
-		</form>
-	</section>
-	</div>
-				<footer class="col-ms-12 rounded mt-1">
-				
-				<div class="mt-2 mb-2">
-					<!--  img class="float-left" src="${root}/img/ssafy.jpg" style="width: 10%; padding-left: 20px"-->
-					<h4 style="background-color: #80aaff">Find us</h4>
-					<br>
-					<p><span class="glyphicon glyphicon-home">  서울시 강남구 테헤란로 멀티스퀘어</span></p> 
-					<p><span class="glyphicon glyphicon-phone">  1544-9001</span></p> 
-					<p><span class="glyphicon glyphicon-envelope">  admin@ssafy.com</span></p> 
-				</div>
-			</footer>
-</body>
+	<%@ include file="/WEB-INF/views/header/header.jsp"%>	
+	<br><br><br>
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					HappyHouse Login
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
 
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
 </html>
