@@ -14,10 +14,10 @@
   <title>Happy House</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="/resources/css/shop-homepage.css" rel="stylesheet">
 
 </head>
 <body style="background-image: url('resources/images/background.jpg'); background-size:cover">
@@ -31,7 +31,7 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Menu</h1>
+        <h1 class="my-4">Happy House</h1>
         <div class="list-group">
           <a href="${root}/tradehub.do?act=dong" class="list-group-item">동별 검색</a>
           <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
@@ -55,10 +55,10 @@
               <img class="d-block img-fluid" src="resources/images/주택.jpeg" style="width: 100%; height: 350px;" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" style="width: 100%; height: 350px;" alt="Second slide">
+              <img class="d-block img-fluid" src="resources/images/맛집.jpeg" style="width: 100%; height: 350px;" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" style="width: 100%; height: 350px;" alt="Third slide">
+              <img class="d-block img-fluid" src="resources/images/가로등.jpeg" style="width: 100%; height: 350px;" alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
