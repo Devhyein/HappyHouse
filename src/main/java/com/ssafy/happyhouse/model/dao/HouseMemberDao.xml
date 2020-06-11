@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ssafy.happyhouse.model.dao.HouseMemberDao">
+	
+	<select id="search" parameterType="string" resultType="HouseMember">
+		select * from housemember where id=#{id}
+	</select>
+	
+	<select id="searchAll" resultType="HouseMember">
+		select * from housemember
+	</select>
+	
+	<insert id="insert" parameterType="HouseMember">
+		insert into housemember values(#{id},#{password},#{name},#{address},#{phone})
+	</insert>
+
+	<update id="update" parameterType="HouseMember">
+		update housemember set 
+						id = #{id}
+						, password = #{password}
+						, name = #{name}
+						, address = #{address}
+						, phone = #{phone}
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from housemember where id=#{id}
+	</delete>
+	
+	<select id="login" resultType="string" parameterType="HouseMember">
+		select id  
+		from   housemember
+		where  id = #{id}
+		and	   password = #{password}
+	</select>
+	
+	<select id="findPw" resultType="string">
+		select password
+		from housemember
+		where id = #{id} and name = #{name}	
+	</select>
+</mapper>

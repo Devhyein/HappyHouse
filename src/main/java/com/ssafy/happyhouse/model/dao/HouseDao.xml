@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.dao.HouseDao">
+
+	<select id="search" parameterType="int" resultType="HouseDeal">
+		select * from housedeal where no=#{no}
+	</select>
+
+	<select id="searchAll" resultType="HouseDeal">
+		select * from housedeal
+		where type in
+		<foreach collection="type" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		limit #{currentPage}, #{sizePerPage}
+	</select>
+
+	<select id="searchApt" resultType="HouseDeal">
+		select * from housedeal
+		where type in
+		<foreach collection="type" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		and aptname like concat('%', #{aptName}, '%')
+		limit #{currentPage},
+		#{sizePerPage}
+	</select>
+
+	<select id="searchDong" resultType="HouseDeal">
+		select * from housedeal
+		where type in
+		<foreach collection="type" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		and dong like concat('%', #{dong}, '%')
+		limit #{currentPage},
+		#{sizePerPage}
+	</select>
+
+</mapper>
