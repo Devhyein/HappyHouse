@@ -56,7 +56,7 @@ public class UserController {
 	@GetMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/index.jsp";
+		return "/user/login";
 	}
 
 	@GetMapping("/registform")
@@ -66,7 +66,7 @@ public class UserController {
 
 	@GetMapping("loginform")
 	public String loginForm() {
-		return "/user/login2";
+		return "/user/login";
 	}
 
 	@PostMapping("/insert.do")
