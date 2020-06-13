@@ -34,7 +34,7 @@
 
     </head>
 
-    <body>
+    <body style="background-image: url('https://previews.123rf.com/images/eugenesergeev/eugenesergeev1712/eugenesergeev171200278/92104077-urban-skyline-with-business-skyscrapers-high-rise-office-buildings-in-city-of-hong-kong-black-and-wh.jpg'); background-size:cover">
 
         <!-- Top content -->
         <div class="top-content">
@@ -69,7 +69,6 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>...or login with:</h3>
                         	<div class="social-login-buttons">
 	                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
 	                        		<i class="fa fa-facebook"></i> Facebook
