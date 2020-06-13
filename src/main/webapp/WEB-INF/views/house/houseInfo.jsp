@@ -1,13 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+
 <html>
+<head>
 
-<%@ include file="/WEB-INF/views/header/header.jsp"%>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
+  <title>Happy House</title>
 
-<body>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+<body style="background-image: url('resources/images/background.jpg'); background-size:cover">
+ <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <br/><br/><br/>
 	<div class="row">
 		<div class="col-md">
@@ -105,6 +119,6 @@
 		</c:otherwise>
 	</c:choose>
 
-
+ <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </body>
 </html>

@@ -16,6 +16,7 @@ import com.ssafy.happyhouse.util.PageNavigation;
 
 @Service
 public class HouseServiceImpl implements HouseService{
+	//
 	private HouseDao dao;
 	private HouseInfoDao infoDao;
 

@@ -63,9 +63,9 @@
 		
 		<input type="submit" class="btn btn-primary" value="로그인" />
 		<input type="button" class="btn btn-primary"
-			onclick="location.href='${root}/user/join.jsp'" value="회원가입">
+			onclick="location.href='${root}/user.do/registform'" value="회원가입">
 		<input type="button" class="btn btn-primary"
-			onclick="location.href='${root}/user/findPw.jsp'" value="비밀번호 찾기">
+			onclick="location.href='${root}/user.do/'" value="비밀번호 찾기">
 		</form>
 	</section>
 	</div>

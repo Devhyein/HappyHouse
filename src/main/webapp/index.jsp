@@ -31,7 +31,7 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Happy House</h1>
+        <h1 class="my-4"></h1>
         <div class="list-group">
           <a href="${root}/tradehub.do?act=dong" class="list-group-item">동별 검색</a>
           <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
@@ -52,13 +52,13 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="resources/images/주택.jpeg" style="width: 100%; height: 350px;" alt="First slide">
+              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPNxtvI1qesMXOGyPl6Sng46N0MH1THX8Vto5faYBQGTlRD-ne&usqp=CAU" style="width: 100%; height: 350px;" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="resources/images/맛집.jpeg" style="width: 100%; height: 350px;" alt="Second slide">
+              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYAwDtfV2lqCPAOc8ZnYewiD_mUqgFpXOHZ66dUkw0ux4waMZL&usqp=CAU" style="width: 100%; height: 350px;" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="resources/images/가로등.jpeg" style="width: 100%; height: 350px;" alt="Third slide">
+              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7fz1qVDmyCsyeOr50DPq5eOlt4E4RgzzIX99s7FEqgCkW2X_D&usqp=CAU" style="width: 100%; height: 350px;" alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -75,12 +75,12 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="${newsinfo.headUrl[0]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/016/2020/05/23/1677064.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">기사 1</a>
+                  <a href="#">${newsinfo.headText[0]}</a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text">${newsinfo.contentText[0]}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -90,12 +90,12 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="${newsinfo.headUrl[1]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/277/2020/06/09/4694884.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">기사 2</a>
+                  <a href="#">${newsinfo.headText[1]}</a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+                <p class="card-text">${newsinfo.contentText[1]}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -105,12 +105,12 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="${newsinfo.headUrl[2]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/119/2020/03/20/2390452.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">기사 3</a>
+                  <a href="#">${newsinfo.headText[2]}</a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text">${newsinfo.contentText[2]}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -120,12 +120,27 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="${newsinfo.headUrl[3]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/011/2020/06/11/3751783.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">기사 4</a>
+                  <a href="#">${newsinfo.headText[3]}</a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text">${newsinfo.contentText[3]}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="${newsinfo.headUrl[4]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/417/2018/07/30/332516.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">${newsinfo.headText[4]}</a>
+                </h4>
+                <p class="card-text">${newsinfo.contentText[4]}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -135,27 +150,12 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="${newsinfo.headUrl[5]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/008/2020/06/12/4424043.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">기사 5</a>
+                  <a href="#">${newsinfo.headText[5]}</a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">기사 6</a>
-                </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text">${newsinfo.contentText[5]}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

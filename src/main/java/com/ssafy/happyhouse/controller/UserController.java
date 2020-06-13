@@ -2,6 +2,8 @@ package com.ssafy.happyhouse.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ssafy.happyhouse.crawling.Crawler;
 import com.ssafy.happyhouse.model.dto.HouseMember;
 import com.ssafy.happyhouse.model.service.HouseMemberService;
 import com.ssafy.happyhouse.model.service.HouseMemberServiceImpl;
@@ -37,10 +40,12 @@ public class UserController {
 	}
 
 	@PostMapping("/login.do")
-	public String login(HouseMember user, HttpSession session) throws SQLException {
+	public String login(HouseMember user, HttpSession session) throws SQLException, IOException {
 		boolean result = houseMemberService.login(user);
+		Crawler c = new Crawler(); 
 		if(result) {
 			session.setAttribute("id", user.getId());
+			session.setAttribute("newsinfo", c);
 			return "redirect:/index.jsp";
 		}else{
 			return "redirect:/index.jsp";
@@ -61,7 +66,7 @@ public class UserController {
 
 	@GetMapping("loginform")
 	public String loginForm() {
-		return "/user/login";
+		return "/user/login2";
 	}
 
 	@PostMapping("/insert.do")
@@ -96,4 +101,16 @@ public class UserController {
 		houseMemberService.update(housemember);
 		return "redirect:/index.jsp";
 	}
+//	@PostMapping("news_info")
+//	public String showNewsInfo(Model model) throws IOException {
+//		Crawler c = new Crawler(); 
+//		model.addAttribute("newsinfo", c);
+//		for (int i = 0; i < 6; i++) {
+//			System.out.println(c.getHeadText()[i]);
+//			System.out.println(c.getHeadUrl()[i]);	
+//			System.out.println(c.getContentUrl()[i]);	
+//			System.out.println(c.getContentText()[i]);				
+//		}
+//		return "redirect:/index.jsp";
+//	}
 }

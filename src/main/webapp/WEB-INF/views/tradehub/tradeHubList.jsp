@@ -81,5 +81,6 @@
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
+	 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 </body>
 </html>
