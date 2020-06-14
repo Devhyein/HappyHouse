@@ -20,9 +20,9 @@
   <link href="/resources/css/shop-homepage.css" rel="stylesheet">
 
 </head>
-<body style="background-image: url('resources/images/background.jpg'); background-size:cover" 
-onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, left=100px, top=100px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')">
+<body style="background-image: url('resources/images/background.jpg'); background-size:cover"> 
 
+<!-- onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, left=100px, top=100px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')"> -->
  <%@ include file="/WEB-INF/views/header/header.jsp"%>
  <c:set var="root" value="${pageContext.request.contextPath }"/>
 <!-- navigation -->
@@ -37,6 +37,7 @@ onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, l
         <div class="list-group">
           <a href="${root}/tradehub.do?act=dong" class="list-group-item">동별 검색</a>
           <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
+          <a href="${root}/parcel.do/main" class="list-group-item">분양 목록</a>
           <a href="#" class="list-group-item">QnA</a>
           <a href="${root}/house.do/streetlamp" class="list-group-item">가로등 현황</a>
         </div>
@@ -57,7 +58,7 @@ onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, l
               <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPNxtvI1qesMXOGyPl6Sng46N0MH1THX8Vto5faYBQGTlRD-ne&usqp=CAU" style="width: 100%; height: 350px;" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYAwDtfV2lqCPAOc8ZnYewiD_mUqgFpXOHZ66dUkw0ux4waMZL&usqp=CAU" style="width: 100%; height: 350px;" alt="Second slide">
+              <img class="d-block img-fluid" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/53846736_1222258517939966_6074838830505000960_o.png?_nc_cat=105&_nc_sid=6e5ad9&_nc_ohc=wVh0hIFUzNAAX8pdj0m&_nc_ht=scontent-ssn1-1.xx&oh=68d4b3661f11e24c37ed96c9c7e889e1&oe=5F0B2602" style="width: 100%; height: 350px;" alt="Second slide">
             </div>
             <div class="carousel-item">
               <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7fz1qVDmyCsyeOr50DPq5eOlt4E4RgzzIX99s7FEqgCkW2X_D&usqp=CAU" style="width: 100%; height: 350px;" alt="Third slide">
