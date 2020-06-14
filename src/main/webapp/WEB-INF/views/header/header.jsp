@@ -49,7 +49,7 @@
 				
 					<c:otherwise>
 						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform">회원 정보   </a></li>
-						<li class="nav-item"><a class="nav-link" href="${root}/user.do/logout.do">로그아웃  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/">로그아웃  </a></li>
 					</c:otherwise>
 				</c:choose>				
 			</ul>
