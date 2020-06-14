@@ -43,5 +43,28 @@
 		limit #{currentPage},
 		#{sizePerPage}
 	</select>
+	
+	<select id="getTotalCount" parameterType="HousePageBean" resultType="int">
+		select count(*) from housedeal 
+		where type in
+		<foreach collection="searchType" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		<if test='dong!=null and dong.equals("")'>
+			and dong like concat('%', #{dong}, '%')
+		</if>
+		<if test="aptname != null">
+			and aptName like concat('%', #{aptname}, '%')
+		</if>
+	</select>
+	
+	<select id="searchDongList" resultType="string">
+		select distinct(dong) from housedeal;
+	</select>
+	
+	<select id="searchAptNameList" resultType="string">
+		select distinct(aptName) from housedeal;
+	</select>
 
 </mapper>

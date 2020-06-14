@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ssafy.happyhouse.model.dto.DongArea;
 import com.ssafy.happyhouse.model.dto.HouseDeal;
 import com.ssafy.happyhouse.model.dto.HouseInfo;
 import com.ssafy.happyhouse.model.dto.HousePageBean;
+import com.ssafy.happyhouse.model.dto.Lamp;
 import com.ssafy.happyhouse.model.service.HouseService;
+import com.ssafy.happyhouse.model.service.LampService;
 import com.ssafy.happyhouse.util.PageNavigation;
 
 /**
@@ -26,6 +29,7 @@ import com.ssafy.happyhouse.util.PageNavigation;
 public class HouseController extends HttpServlet {
 
 	private HouseService service;
+	private LampService lampService;
 //	TradeHubService shopService;
 
 	@Autowired
@@ -33,12 +37,21 @@ public class HouseController extends HttpServlet {
 		this.service = service;
 	}
 
+	@Autowired
+	public void setLampService(LampService lampService) {
+		this.lampService = lampService;
+	}
+
+
+
 	@GetMapping("/main")
 	public String showMainView(String group, int pg, Model model) {
 		int currentPage = pg;
 		HousePageBean bean = new HousePageBean();
 		int sizePerPage = 10;
 		List<HouseDeal> dealList = null;
+		List<String> searchList = service.searchDongList();
+		searchList.addAll(service.searchAptNameList());
 		switch (group) {
 		case "all":
 			boolean[] allB = { true, true, true, true };
@@ -62,6 +75,7 @@ public class HouseController extends HttpServlet {
 			model.addAttribute("dealList", dealList);
 			model.addAttribute("group", group);
 			model.addAttribute("navigation", pageNavigation);
+			model.addAttribute("searchList", searchList);
 
 		} catch (Exception e) {
 			model.addAttribute("msg", "거래 정보 로드 실패");
@@ -76,11 +90,13 @@ public class HouseController extends HttpServlet {
 	public String searchDeals(String category, String group, String search, int pg, Model model,HousePageBean bean, HttpSession session) {
 		int currentPage = pg;
 		int sizePerPage = 10;
+		bean = new HousePageBean();
 		List<HouseDeal> dealList = null;
 
 		switch (group) {
 		case "all":
 			boolean[] allB = { true, true, true, true };
+			bean.setSearchType(allB);
 			if(category.equals("apt")) {
 				dealList = service.search_apt(currentPage, sizePerPage, allB, search);
 			}
@@ -89,6 +105,7 @@ public class HouseController extends HttpServlet {
 			break;
 		case "apt":
 			boolean[] aptB = { true, true, false, false };
+			bean.setSearchType(aptB);
 			if(category.equals("apt"))
 				dealList = service.search_apt(currentPage, sizePerPage, aptB, search);
 			else if(category.equals("dong"))
@@ -96,6 +113,7 @@ public class HouseController extends HttpServlet {
 			break;
 		case "house":
 			boolean[] houseB = { false, false, true, true };
+			bean.setSearchType(houseB);
 			if(category.equals("apt"))
 				dealList = service.search_apt(currentPage, sizePerPage, houseB, search);
 			else if(category.equals("dong"))
@@ -106,7 +124,7 @@ public class HouseController extends HttpServlet {
 			PageNavigation pageNavigation = service.makePageNavigation(currentPage, sizePerPage, bean);
 			model.addAttribute("dealList", dealList);
 			model.addAttribute("navigation", pageNavigation);
-
+			model.addAttribute("group", group);
 		} catch (Exception e) {
 			model.addAttribute("msg", "거래 정보 로드 실패");
 			return "error";
@@ -121,6 +139,24 @@ public class HouseController extends HttpServlet {
 		model.addAttribute("deal", deal);
 		return "house/houseInfo";
 	}
+	
+	// 지도 관련 추가
+	@GetMapping("/streetlamp")
+	public String showLampMap(Model model) {
+		//데이터 가져오기
+		List<Lamp> lamp = lampService.selectAll();
+		List<DongArea> graph = lampService.CountLamp();
+		for (DongArea dongArea : graph) {
+			dongArea.setSize(dongArea.getLampCnt()/dongArea.getArea());
+			if(dongArea.getSize()<10)
+				dongArea.setSize(20);
+		}
+		model.addAttribute("lamp", lamp);
+		model.addAttribute("graph",graph);
+		return "lampMap";
+	}
+	
+
 	
 	
 }

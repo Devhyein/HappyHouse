@@ -56,4 +56,7 @@ public interface HouseService {
 	 */
 	public PageNavigation makePageNavigation(int currentPage, int sizePerPage, HousePageBean bean) throws SQLException;
 
+	public List<String> searchDongList();
+	public List<String> searchAptNameList();
+
 }

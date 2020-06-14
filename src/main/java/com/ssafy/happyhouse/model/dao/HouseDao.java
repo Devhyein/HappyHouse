@@ -53,5 +53,9 @@ public interface HouseDao {
 	public List<HouseDeal> searchApt(int currentPage, int sizePerPage, String[] type, String aptName);
 	public List<HouseDeal> searchDong(int currentPage, int sizePerPage, String[] type, String dong);
 
-//	int getTotalCount(HousePageBean bean) throws SQLException;
+
+	int getTotalCount(HousePageBean bean) throws SQLException;
+
+	public List<String> searchDongList();
+	public List<String> searchAptNameList();
 }

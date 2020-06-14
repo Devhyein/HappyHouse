@@ -107,19 +107,29 @@ public class HouseServiceImpl implements HouseService{
 	@Override
 	public PageNavigation makePageNavigation(int currentPage, int sizePerPage, HousePageBean bean) throws SQLException {
 		PageNavigation pageNavigation = new PageNavigation();
-//		int naviSize = 10; //밑에 한번에 눌러서 갈 수 있는 페이지개수
-//		pageNavigation.setCurrentPage(currentPage);
-//		pageNavigation.setNaviSize(naviSize);
-//		int totalCount = dao.getTotalCount(bean); //총 게시글 수
-//		pageNavigation.setTotalCount(totalCount);
-//		int totalPageCount = (totalCount-1)/sizePerPage+1; //전체 페이지 수 계산
-//		pageNavigation.setTotalPageCount(totalPageCount);
-//		boolean startRange = currentPage<=naviSize; //true면 이전 버튼 못누름
-//		pageNavigation.setStartRange(startRange);
-//		boolean endRange = (totalPageCount-1)/naviSize*naviSize<currentPage; //true면 다음 버튼 못누름
-//		pageNavigation.setEndRange(endRange);
-//		pageNavigation.makeNavigator();
+		int naviSize = 10; //밑에 한번에 눌러서 갈 수 있는 페이지개수
+		pageNavigation.setCurrentPage(currentPage);
+		pageNavigation.setNaviSize(naviSize);
+		int totalCount = dao.getTotalCount(bean); //총 게시글 수
+		pageNavigation.setTotalCount(totalCount);
+		int totalPageCount = (totalCount-1)/sizePerPage+1; //전체 페이지 수 계산
+		pageNavigation.setTotalPageCount(totalPageCount);
+		boolean startRange = currentPage<=naviSize; //true면 이전 버튼 못누름
+		pageNavigation.setStartRange(startRange);
+		boolean endRange = (totalPageCount-1)/naviSize*naviSize<currentPage; //true면 다음 버튼 못누름
+		pageNavigation.setEndRange(endRange);
+		pageNavigation.makeNavigator();
 		return pageNavigation;
+	}
+
+	@Override
+	public List<String> searchDongList() {
+		return dao.searchDongList();
+	}
+
+	@Override
+	public List<String> searchAptNameList() {
+		return dao.searchAptNameList();
 	}
 
 //	@Override
