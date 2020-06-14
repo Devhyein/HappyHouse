@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -36,9 +37,30 @@
 	}
 </script>
 
+<!-- jquery autocomplete -->	
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+
+<script>
+$(function() {
+	var autocomplete_text = [];
+	
+	<c:forEach items="${searchList}" var="list">
+		autocomplete_text.push('${list}');
+	</c:forEach>
+	 
+	$( "#search" ).autocomplete({
+		source: autocomplete_text
+	});
+});
+</script>
+<!-- jquery autocomplete -->	
+
 <body>
 	<div class="page-wrapper">
 		<div class="section" style="margin-bottom: 30px;">
+		
 			<div class="container-fluid">
 				<div
 					class="sorting-filters text-center d-flex justify-content-center">
