@@ -78,7 +78,7 @@
 								<input type="button" class="btn"
 									onclick="location.href='${root}/user.do/registform'"
 									value="회원가입"> <input type="button" class="btn"
-									onclick="location.href='${root}/user.do/'" value="비밀번호 찾기">
+									onclick="location.href='${root}/user.do/findpwform.do'" value="비밀번호 찾기">
 
 							</form>
 						</div>

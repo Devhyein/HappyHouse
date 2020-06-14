@@ -6,6 +6,14 @@
 <html>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <head>
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+<link rel="stylesheet"
+	href="resources/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="resources/assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/assets/css/form-elements.css">
+<link rel="stylesheet" href="resources/assets/css/style.css">
 <style>
 section {
 	background-color: #e0e0eb;
@@ -53,10 +61,11 @@ footer {
 	}
 </script>
 </head>
-<body>
+<body style="background-image: url('../resources/images/background.jpg'); background-size:cover">
+ <%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<div class="container" align="center">
 	<section>
-		<h2>회원 정보 수정</h2>
+		<h2>회원 정보 수정</h2><br>
 		<div>
 			<c:if test="${housemember != null}">
 				<form id="frm" method="post" action="${root}/user.do/update.do">
@@ -87,7 +96,7 @@ footer {
 							value="${housemember.phone}">
 					</div>
 
-					<input type="button"  value="수정"  id="btn1">	
+					<input type="button" class="btn btn-primary" value="수정"  id="btn1">	
 				</form>
 			</c:if>
 			<c:if test="${housemember == null}">
@@ -95,23 +104,7 @@ footer {
 			</c:if>
 		</div>
 		</section>
-	</div>
-	<footer class="col-ms-12 rounded mt-1">
-
-		<div class="mt-2 mb-2">
-			<!--  img class="float-left" src="${root}/img/ssafy.jpg" style="width: 10%; padding-left: 20px"-->
-			<h4 style="background-color: #80aaff">Find us</h4>
-			<br>
-			<p>
-				<span class="glyphicon glyphicon-home"> 서울시 강남구 테헤란로 멀티스퀘어</span>
-			</p>
-			<p>
-				<span class="glyphicon glyphicon-phone"> 1544-9001</span>
-			</p>
-			<p>
-				<span class="glyphicon glyphicon-envelope"> admin@ssafy.com</span>
-			</p>
-		</div>
-	</footer>
+	</div><br><br>
+<%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </body>
 </html>

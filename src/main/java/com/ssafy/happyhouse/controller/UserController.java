@@ -101,16 +101,13 @@ public class UserController {
 		houseMemberService.update(housemember);
 		return "redirect:/index.jsp";
 	}
-//	@PostMapping("news_info")
-//	public String showNewsInfo(Model model) throws IOException {
-//		Crawler c = new Crawler(); 
-//		model.addAttribute("newsinfo", c);
-//		for (int i = 0; i < 6; i++) {
-//			System.out.println(c.getHeadText()[i]);
-//			System.out.println(c.getHeadUrl()[i]);	
-//			System.out.println(c.getContentUrl()[i]);	
-//			System.out.println(c.getContentText()[i]);				
-//		}
-//		return "redirect:/index.jsp";
-//	}
+	@GetMapping("/findpwform.do")
+	public String findpwform() {
+		return "/user/findPw";
+	}
+	@GetMapping("/index.do")
+	public String index() {
+		return "redirect:/index.jsp";
+	}
+	
 }

@@ -22,7 +22,8 @@
 	}
 </script>
 </head>
-<body>
+ <%@ include file="/WEB-INF/views/header/header.jsp"%>
+<body style="background-image: url('resources/images/background.jpg'); background-size:cover">
 	<c:if test="${user eq null}">
 		<div class="container" align="center">
 			<h2>비밀번호 찾기</h2>
@@ -53,4 +54,5 @@
 		</div>
 	</c:if>
 </body>
+<%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </html>

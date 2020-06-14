@@ -8,13 +8,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- chart.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 <!-- 지도로 보기, 그래프로 보기 onclick이벤트 지정 -->
 <script>
@@ -56,26 +57,25 @@ button {
 </style>
 </head>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
-<body>
+<body
+	style="background-image: url('../resources/images/background.jpg'); background-size: cover">
 	<div id="main">
 		<div class="container">
 			<div class="mt-2 mb-2">
-				<h2 style="align-content: left">Happy House</h2>
+				<h2 style="align-content: left">   Happy House</h2>
 			</div>
 		</div>
 
 	</div>
 	<div align="center">
-	<div>
-		<button type="button" onclick="show(1)" value="지도로 보기">지도로 보기</button>
-		<button type="button" onclick="show(2)" value="그래프로 보기">그래프로 보기</button>
-	</div>
-		<div>
-			
+
+		<div style="background-image: none; background-size: cover">
+
 			<div id="map" style="width: 1000px; height: 500px;"></div>
-			
-			<canvas id="bubble-chart" width="1000px" height="500px" style="display:none"></canvas>
-			
+
+			<canvas id="bubble-chart" width="1000px" height="500px"
+				style="display: none"></canvas>
+
 			<!-- map start -->
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ce3994029fb75698f5aab6f4d94e9c7"></script>
@@ -122,10 +122,10 @@ button {
 			</script>
 
 			<!-- map end -->
-			
-			
+
+
 			<!-- graph start -->
-			
+
 			<script>
 			var colors = [
 				'rgba(255, 99, 132, 0.2)',
@@ -200,30 +200,15 @@ button {
 			});
 			
 			</script>
-			
-			<!-- graph end -->
-			
-			
-			
-			<footer class="col-ms-12 rounded mt-1">
 
-				<div class="mt-2 mb-2">
-					<!--  img class="float-left" src="${root}/img/ssafy.jpg" style="width: 10%; padding-left: 20px"-->
-					<h4 style="background-color: #80aaff">Find us</h4>
-					<br>
-					<p>
-						<span class="glyphicon glyphicon-home"> 서울시 강남구 테헤란로 멀티스퀘어</span>
-					</p>
-					<p>
-						<span class="glyphicon glyphicon-phone"> 1544-9001</span>
-					</p>
-					<p>
-						<span class="glyphicon glyphicon-envelope"> admin@ssafy.com</span>
-					</p>
-				</div>
-			</footer>
+			<!-- graph end -->
+		</div><br>
+		<div>
+			<button type="button" class="btn btn-primary" onclick="show(1)" value="지도로 보기">지도</button>
+			<button type="button" class="btn btn-primary" onclick="show(2)" value="그래프로 보기">그래프</button>
 		</div>
 	</div>
-	<div>아이콘 제작자 <a href="https://smashicons.com/" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+	<!-- <div>아이콘 제작자 <a href="https://smashicons.com/" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div> -->
+	<%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </body>
 </html>

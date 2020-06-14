@@ -35,9 +35,8 @@
         <div class="list-group">
           <a href="${root}/tradehub.do?act=dong" class="list-group-item">동별 검색</a>
           <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
-          <a href="#" class="list-group-item">안심주택 찾기</a>
           <a href="#" class="list-group-item">QnA</a>
-          <a href="${root}/house.do/streetlamp" class="list-group-item">지도 보기</a>
+          <a href="${root}/house.do/streetlamp" class="list-group-item">가로등 현황</a>
         </div>
 
       </div>
