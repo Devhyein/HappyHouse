@@ -101,7 +101,7 @@ button {
 			</c:forEach>
 
 			// 마커 이미지의 이미지 주소입니다
-			var imageSrc = "https://png.pngtree.com/png-vector/20191204/ourlarge/pngtree-street-lights-shining-vector-illustration-on-white-background-png-image_2025177.jpg"; 
+			var imageSrc = '${root}/resources/images/lamp.png'; 
 			    
 			for (var i = 0; i < positions.length; i ++) {
 			    
