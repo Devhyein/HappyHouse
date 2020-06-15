@@ -36,7 +36,7 @@
 
 			<div class="col-lg-1"></div>
 
-			<div class="col-lg-8" style="height: 500px">
+			<div class="col-lg-7" style="height: 500px">
 				<canvas id="myChart"></canvas>
 			</div>
 
