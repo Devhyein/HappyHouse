@@ -58,7 +58,7 @@ button {
 </head>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body
-	style="background-image: url('../resources/images/background.jpg'); background-size: cover">
+	style="background-image: url('../resources/images/background.jpg'); background-size: cover; background-opacity: 0.5;">
 	<div id="main">
 		<div class="container">
 			<div class="mt-2 mb-2">

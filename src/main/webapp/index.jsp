@@ -38,15 +38,15 @@
           <a href="${root}/tradehub.do?act=dong" class="list-group-item">동별 검색</a>
           <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
           <a href="${root}/parcel.do/main" class="list-group-item">분양 목록</a>
+          <a href="${root}/house.do/streetlamp" class="list-group-item">안전 지도</a>
           <a href="#" class="list-group-item">QnA</a>
-          <a href="${root}/house.do/streetlamp" class="list-group-item">지도 검색</a>
         </div>
 
       </div>
       <!-- /.col-lg-3 -->
-
       <div class="col-lg-9">
-
+		
+	  
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,13 +55,13 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPNxtvI1qesMXOGyPl6Sng46N0MH1THX8Vto5faYBQGTlRD-ne&usqp=CAU" style="width: 100%; height: 350px;" alt="First slide">
+              <img class="d-block img-fluid" src="resources/images/bg1.jpg" style="width: 100%; height: 350px;" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/53846736_1222258517939966_6074838830505000960_o.png?_nc_cat=105&_nc_sid=6e5ad9&_nc_ohc=wVh0hIFUzNAAX8pdj0m&_nc_ht=scontent-ssn1-1.xx&oh=68d4b3661f11e24c37ed96c9c7e889e1&oe=5F0B2602" style="width: 100%; height: 350px;" alt="Second slide">
+              <img class="d-block img-fluid" src="resources/images/bg2.jpeg" style="width: 100%; height: 350px;" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7fz1qVDmyCsyeOr50DPq5eOlt4E4RgzzIX99s7FEqgCkW2X_D&usqp=CAU" style="width: 100%; height: 350px;" alt="Third slide">
+              <img class="d-block img-fluid" src="resources/images/bg3.jpeg" style="width: 100%; height: 350px;" alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -74,8 +74,8 @@
           </a>
         </div>
 
+		<h3>핫 이슈</h3><br>
         <div class="row">
-
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="${newsinfo.headUrl[0]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/016/2020/05/23/1677064.jpg" alt=""></a>
@@ -84,9 +84,6 @@
                   <a href="#">${newsinfo.headText[0]}</a>
                 </h4>
                 <p class="card-text">${newsinfo.contentText[0]}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>
@@ -100,9 +97,6 @@
                 </h4>
                 <p class="card-text">${newsinfo.contentText[1]}</p>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
             </div>
           </div>
 
@@ -114,9 +108,6 @@
                   <a href="#">${newsinfo.headText[2]}</a>
                 </h4>
                 <p class="card-text">${newsinfo.contentText[2]}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>
@@ -130,9 +121,6 @@
                 </h4>
                 <p class="card-text">${newsinfo.contentText[3]}</p>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734;</small>
-              </div>
             </div>
           </div>
 
@@ -145,9 +133,6 @@
                 </h4>
                 <p class="card-text">${newsinfo.contentText[4]}</p>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
             </div>
           </div>
 
@@ -159,9 +144,6 @@
                   <a href="#">${newsinfo.headText[5]}</a>
                 </h4>
                 <p class="card-text">${newsinfo.contentText[5]}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>
