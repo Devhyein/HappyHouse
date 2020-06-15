@@ -135,7 +135,10 @@ button {
                 'rgba(255, 159, 64, 0.2)',
                 'rgba(232, 62, 140, 0.2)',
                 'rgba(108, 117, 125, 0.2)',
-                'rgba(32, 201, 151, 0.2)'
+                'rgba(32, 201, 151, 0.2)',
+                'rgba(72, 2, 250, 0.2)',
+                'rgba(2, 250, 23, 0.2)',
+                'rgba(255, 41, 41, 0.2)'
                 ];
 			var borderColors = [
 				'rgba(255, 99, 132, 1)',
@@ -146,7 +149,10 @@ button {
                 'rgba(255, 159, 64, 1)',
                 'rgba(232, 62, 140, 1)',
                 'rgba(108, 117, 125, 1)',
-                'rgba(32, 201, 151, 1)'
+                'rgba(32, 201, 151, 1)',
+                'rgba(72, 2, 250, 1)',
+                'rgba(2, 250, 23, 1)',
+                'rgba(255, 41, 41, 1)'
 			];
 			new Chart(document.getElementById("bubble-chart"), {
 			    type: 'bubble',
@@ -182,6 +188,9 @@ button {
 			          }, 
 			          gridLines : {
 			        	  color: "rgba(0, 0, 0, 0)",
+			          },
+			          ticks:{
+			        	  max:2000
 			          }
 			        }],
 			        xAxes: [{ 
