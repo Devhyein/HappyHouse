@@ -74,7 +74,7 @@
           </a>
         </div>
 
-		<h3>핫 이슈</h3><br>
+		<h3>실시간 뉴스</h3><br>
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
