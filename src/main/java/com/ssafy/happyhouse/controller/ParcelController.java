@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -33,6 +34,15 @@ public class ParcelController {
 		Parcel parcel = service.search(price);
 		model.addAttribute("bunyang", parcel);
 		return "house/bunyangInfo";
+	}
+	
+	@GetMapping("/chartinfo")
+	public String showParcelChart(Model model) throws SQLException {
+		List<String> searchList = service.searchList();
+		List<Parcel> parcelList = service.searchAll(1, 75);
+		model.addAttribute("bunyang", parcelList);	
+		model.addAttribute("searchList", searchList);
+		return "house/bunyangchart";
 	}
 	
 	@GetMapping("/main")

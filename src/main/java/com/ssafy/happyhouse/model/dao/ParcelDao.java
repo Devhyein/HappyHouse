@@ -13,11 +13,15 @@ import com.ssafy.happyhouse.model.dto.Parcel;
 public interface ParcelDao {
 
 	List<Parcel> searchAll(int currentPage, int sizePerPage)  throws SQLException;
+	
+	List<Parcel> searchlist()  throws SQLException;
 
 	Parcel search(int price)  throws SQLException;
 
 	int getTotalCount();
 
 	List<String> searchList();
+	
+	
 
 }

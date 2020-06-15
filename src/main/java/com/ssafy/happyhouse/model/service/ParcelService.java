@@ -12,6 +12,7 @@ import com.ssafy.happyhouse.util.PageNavigation;
 @Service
 public interface ParcelService {
 	public List<Parcel> searchAll(int currentPage, int sizePerPage);
+	public List<Parcel> searchlist() throws SQLException;
 	public Parcel search(int price);
 	public List<String> searchList();
 	public PageNavigation makePageNavigation(int currentPage, int sizePerPage) throws SQLException;;	

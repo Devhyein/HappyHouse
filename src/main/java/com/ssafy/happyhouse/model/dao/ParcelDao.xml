@@ -10,6 +10,11 @@
 		select * from parceldeal where price=#{price}
 	</select>
 
+	<select id="searchlist" resultType="Parcel">
+		select * from parceldeal		
+		limit 200
+	</select>
+	
 	<select id="searchAll" resultType="Parcel">
 		select * from parceldeal		
 		limit #{currentPage}, #{sizePerPage}

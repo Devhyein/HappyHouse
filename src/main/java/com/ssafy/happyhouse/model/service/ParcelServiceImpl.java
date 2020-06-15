@@ -79,4 +79,12 @@ public class ParcelServiceImpl implements ParcelService {
 
 
 
+	@Override
+	public List<Parcel> searchlist() throws SQLException {
+		// TODO Auto-generated method stub
+		return dao.searchlist();
+	}
+
+
+
 }

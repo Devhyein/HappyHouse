@@ -27,97 +27,102 @@
 <script type="text/javascript">
 	function pageMove(pg) {
 		document.getElementById("pg").value = pg;
-		location.href = "${root}/parcel.do/main?pg=" + pg;			
+		location.href = "${root}/parcel.do/main?pg=" + pg;
 
 	}
 	function pageMove_search(pg) {
 		document.getElementById("pg").value = pg;
-		document.getElementById("loginform").action = "${root}/parcel.do/search?pg=" + pg;
+		document.getElementById("loginform").action = "${root}/parcel.do/search?pg="
+				+ pg;
 		document.getElementById("loginform").submit();
 	}
 </script>
 
 <script>
-$(function() {
-	var autocomplete_text = [];
-	
-	<c:forEach items="${searchList}" var="list">
+	$(function() {
+		var autocomplete_text = [];
+
+		<c:forEach items="${searchList}" var="list">
 		autocomplete_text.push('${list}');
-	</c:forEach>
-	 
-	$( "#search" ).autocomplete({
-		source: autocomplete_text
+		</c:forEach>
+
+		$("#search").autocomplete({
+			source : autocomplete_text
+		});
 	});
-});
 </script>
 </head>
-	<!-- onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, left=100px, top=100px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')"> -->
 <body>
- <div class="container">
-	<br><br>
-    <div class="row">	  
-	  
-	   <div class="col-lg-3">
+	<div class="container">
+		<br>
+		<br>
+		<div class="row">
 
-        <h1 class="my-4"></h1>
-        <div class="list-group">
-          <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">가격 보기</a>
-          <a href="${root}/parcel.do/main?pg=1" class="list-group-item">그래프로 보기</a>
-          <a href="${root}/house.do/streetlamp" class="list-group-item">현재 분양 정보</a>
-        </div>
+			<div class="col-lg-3">
 
-      </div>
-	<div class="col-lg-1"></div>
-	<div class="col-lg-8">
+				<h1 class="my-4"></h1>
+				<div class="list-group">
+					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">가격
+						추세 보기</a> <a href="${root}/parcel.do/chartinfo"
+						class="list-group-item">그래프로 보기</a> <a
+						href="${root}/house.do/streetlamp" class="list-group-item">현재
+						분양 정보</a>
+				</div>
 
+			</div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-8">
 
-		<table class="table" align="center">
-			<tbody align="center">
-				<tr class="table-active row">
-					<th class="col-md-2">지역</th>
-					<th class="col-md-4">면적</th>
-					<th class="col-md-2">년</th>
-					<th class="col-md-2">월</th>
-					<th class="col-md-2">가격(m^2)</th>
-				</tr>
-			</tbody>
-		</table>
+				<h3>가격 추세</h3>
+				<br>
+				<table class="table" align="center">
+					<tbody align="center">
+						<tr class="table-active row">
+							<th class="col-md-2">지역</th>
+							<th class="col-md-4">면적</th>
+							<th class="col-md-2">년</th>
+							<th class="col-md-2">월</th>
+							<th class="col-md-2">가격(m^2)</th>
+						</tr>
+					</tbody>
+				</table>
 
-		<c:forEach var="parcel" items="${bunyang}">
-			<table class="table">
-				<tbody align="center ">
-					<tr class="row">
-						<td class="col-md-2">${parcel['loc']}</td>
-						<td class="col-md-4">${parcel['area']}</td>
-						<td class="col-md-2">${parcel.year}</td>
-						<td class="col-md-2">${parcel.month}</td>
-						<td class="col-md-2">${parcel.price}</td>
-					</tr>
-				</tbody>
-			</table>
+				<c:forEach var="parcel" items="${bunyang}">
+					<table class="table">
+						<tbody align="center ">
+							<tr class="row">
+								<td class="col-md-2">${parcel['loc']}</td>
+								<td class="col-md-4">${parcel['area']}</td>
+								<td class="col-md-2">${parcel.year}</td>
+								<td class="col-md-2">${parcel.month}</td>
+								<td class="col-md-2">${parcel.price}</td>
+							</tr>
+						</tbody>
+					</table>
 
-		</c:forEach>
-		<div class="text-center">${navigation.navigator}</div>
+				</c:forEach>
+				<div class="text-center">${navigation.navigator}</div>
 				<div class="section" style="margin-top: 30px;">
-		
-			<div class="container-fluid">
-				<div
-					class="sorting-filters text-center d-flex justify-content-center">
-					<form id="loginform" method="post" class="form-group" action="" style="margin-top:10px;">
-						<div class="form-group">
-							<input type="text" class="form-control" id="search" name="search"
-								placeholder="" value="${search}">
+
+					<div class="container-fluid">
+						<div
+							class="sorting-filters text-center d-flex justify-content-center">
+							<form id="loginform" method="post" class="form-group" action=""
+								style="margin-top: 10px;">
+								<div class="form-group">
+									<input type="text" class="form-control" id="search"
+										name="search" placeholder="" value="${search}">
+								</div>
+								<div class="form-group" align="center">
+									<button type="button" class="btn btn-warning col-md-4"
+										onclick="javascript:pageMove_search(1);">검색</button>
+								</div>
+							</form>
 						</div>
-						<div class="form-group" align="center">
-							<button type="button" class="btn btn-warning col-md-4"
-								onclick="javascript:pageMove_search(1);">검색</button>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
 	</div>
 </body>
 </html>
