@@ -45,13 +45,15 @@
 <script>
 $(function() {
 	var autocomplete_text = [];
-	
 	<c:forEach items="${searchList}" var="list">
-		autocomplete_text.push('${list}');
+		autocomplete_text.push("${list}");
 	</c:forEach>
 	 
 	$( "#search" ).autocomplete({
-		source: autocomplete_text
+		source: function(request, response){
+			var results = $.ui.autocomplete.filter(autocomplete_text, request.term);
+			response(results.slice(0,10));
+		}
 	});
 });
 </script>
