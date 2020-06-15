@@ -89,19 +89,19 @@ public class PageNavigation {
 		StringBuilder buffer = new StringBuilder();
 		buffer.append("		<ul class=\"pagination justify-content-center\"> \n");
 		buffer.append("			<li class=\"page-item\"> \n");
-		buffer.append("				<a href=\"javascript:pageMove_search(1);\" class=\"page-link\">최신</a> \n");
+		buffer.append("				<a href=\"javascript:pageMove_search(1);\" class=\"page-link\">new</a> \n");
 		buffer.append("			</li> \n");
 		buffer.append("			<li class=\"page-item\"> \n");
-		buffer.append("				<a href=\"javascript:pageMove_search(" + (startRange ? 1 : startPage - 1) + ");\" class=\"page-link\">이전</a> \n");
+		buffer.append("				<a href=\"javascript:pageMove_search(" + (startRange ? 1 : startPage - 1) + ");\" class=\"page-link\">prev</a> \n");
 		buffer.append("			</li> \n");
 		for(int i=startPage;i<=endPage;i++) {
 			buffer.append("			<li class=\"" + (currentPage == i ? "page-item active" : "page-item") + "\"><a href=\"javascript:pageMove_search(" + i + ");\" class=\"page-link\">" + i + "</a></li> \n");
 		}
 		buffer.append("			<li class=\"page-item\"> \n");
-		buffer.append("				<a href=\"javascript:pageMove_search(" + (endRange ? endPage : endPage + 1) + ");\" class=\"page-link\">다음</a> \n");
+		buffer.append("				<a href=\"javascript:pageMove_search(" + (endRange ? endPage : endPage + 1) + ");\" class=\"page-link\">next</a> \n");
 		buffer.append("			</li> \n");
 		buffer.append("			<li class=\"page-item\"> \n");
-		buffer.append("				<a href=\"javascript:pageMove_search(" +  + totalPageCount + ");\" class=\"page-link\">마지막</a> \n");
+		buffer.append("				<a href=\"javascript:pageMove_search(" +  + totalPageCount + ");\" class=\"page-link\">end</a> \n");
 		buffer.append("			</li> \n");
 		buffer.append("		</ul> \n");
 		this.navigator = buffer.toString();

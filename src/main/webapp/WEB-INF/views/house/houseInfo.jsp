@@ -20,12 +20,12 @@
   <link href="css/shop-homepage.css" rel="stylesheet">
 
 </head>
-<body style="background-image: url('resources/images/background.jpg'); background-size:cover">
+<body>
  <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <br/><br/><br/>
 	<div class="row">
 		<div class="col-md">
-			<img width="900px" height="500px" src="${root}/img/${deal.img}">
+			<img width="900px" height="500px" src="${root}/image/${deal.img}">
 		</div>
 		<div class="col-md">
 		<h5>상세정보</h5>
@@ -33,14 +33,14 @@
 		<table class="table col-md">
 			<tbody align="center">
 				<tr class="">
-					<th>Dong</th>
+					<th>동</th>
 				</tr>
 				<tr>
 					<td>${deal.dong }</td>
 				</tr>
 
 				<tr class="">
-					<th>aptName</th>
+					<th>아파트명</th>
 				</tr>
 				<tr>
 					<td>${deal.aptName }</td>
