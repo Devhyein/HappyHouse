@@ -16,12 +16,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<br><br><br>
   <footer class="py-5 bg-dark">
-    <div class="container">
+    <div>
 	<p class="m-0 text-center text-white"><span class="glyphicon glyphicon-home">  서울시 강남구 테헤란로 멀티스퀘어</span></p> 
 	<p class="m-0 text-center text-white"><span class="glyphicon glyphicon-phone">  1544-9001</span></p> 
-	<p class="m-0 text-center text-white"><span class="glyphicon glyphicon-envelope">  admin@ssafy.com</span></p> 
-      <p class="m-0 text-center text-white">Copyright &copy; 서울_8반_9조</p>      
+    <p class="m-0 text-center text-white">Copyright &copy; 서울_8반_9조</p>      
     </div>
   </footer>

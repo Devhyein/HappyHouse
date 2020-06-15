@@ -19,16 +19,16 @@
 </head>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
-	<div class="container">
+	<div style="margin:30px 30px 30px 30px">
 		<br> <br>
 		<div class="row">
 			<div class="col-lg-3">
 
 				<h1 class="my-4"></h1>
 				<div class="list-group">
-					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양가 추세(table)</a> 
+					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양가 목록</a> 
 						<a href="${root}/parcel.do/chartinfo"
-						class="list-group-item">분양가 추세(chart)</a> <a
+						class="list-group-item">분양가 추세</a> <a
 						href="${root}/parcel.do/latest" class="list-group-item">현재
 						분양 정보</a>
 				</div>

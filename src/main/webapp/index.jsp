@@ -27,8 +27,7 @@
  <c:set var="root" value="${pageContext.request.contextPath }"/>
 <!-- navigation -->
   <!-- Page Content -->
-  <div class="container">
-
+  <div style="margin:60px 45px 30px 45px">
     <div class="row">
 
       <div class="col-lg-3">
@@ -76,12 +75,12 @@
 		<h3>실시간 뉴스</h3><br>
         <div class="row">
 		<c:forEach var="newsinfo" items="${newsinfo}">
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
               <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">${newsinfo.headText}</a>
+                  <a href="${newsinfo.headUrl}">${newsinfo.headText}</a>
                 </h4>
                 <p class="card-text">${newsinfo.contentText}</p>
               </div>

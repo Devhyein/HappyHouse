@@ -53,7 +53,7 @@
 </script>
 </head>
 <body>
-	<div class="container">
+	<div style="margin:30px 30px 30px 30px">
 		<br> <br>
 		<div class="row">
 
@@ -61,9 +61,10 @@
 
 				<h1 class="my-4"></h1>
 				<div class="list-group">
-					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양가 추세(table)</a> <a href="${root}/parcel.do/chartinfo"
-						class="list-group-item">분양가 추세(chart)</a> <a
-						href="${root}/house.do/streetlamp" class="list-group-item">현재
+					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양가 목록</a> 
+						<a href="${root}/parcel.do/chartinfo"
+						class="list-group-item">분양가 추세</a> <a
+						href="${root}/parcel.do/latest" class="list-group-item">현재
 						분양 정보</a>
 				</div>
 
@@ -92,7 +93,7 @@
 							<tr class="row">
 								<td class="col-md-1">${parcel.ptype}</td>
 								<td class="col-md-2">${parcel.pname}</td>
-								<td class="col-md-2">${parcel.location}</td>
+								<td class="col-md-2"><a href=#>${parcel.location}</a></td>
 								<td class="col-md-2">${parcel.price}</td>
 								<td class="col-md-1">${parcel.capacity}</td>
 								<td class="col-md-2">${parcel.ptime}</td>
@@ -108,4 +109,5 @@
 		</div>
 	</div>
 </body>
+<%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </html>

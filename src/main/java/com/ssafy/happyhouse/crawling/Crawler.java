@@ -26,7 +26,7 @@ public class Crawler {
                 .get();
 		Elements headlineUrl = rawData.select("li a.headline");
 		Elements articleUrl = rawData.select("div.wrap li a:not(.headline)");
-		count = 6;
+		count = 7;
 		for (int i = 0; i < count; i++) {
 			String headUrl = headlineUrl.get(i).attr("abs:href");
 			String headText = headlineUrl.get(i).text();
