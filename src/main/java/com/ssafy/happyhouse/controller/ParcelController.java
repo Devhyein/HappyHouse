@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ssafy.happyhouse.crawling.Crawler;
 import com.ssafy.happyhouse.model.dto.HouseDeal;
 import com.ssafy.happyhouse.model.dto.HousePageBean;
+import com.ssafy.happyhouse.model.dto.LatestParcel;
 import com.ssafy.happyhouse.model.dto.Parcel;
 import com.ssafy.happyhouse.model.service.ParcelService;
 import com.ssafy.happyhouse.util.PageNavigation;
@@ -43,6 +46,14 @@ public class ParcelController {
 		model.addAttribute("bunyang", parcelList);	
 		model.addAttribute("searchList", searchList);
 		return "house/bunyangchart";
+	}
+	
+	@GetMapping("/latest")
+	public String showLatestParcel(Model model) throws SQLException, IOException {
+		Crawler c = new Crawler();
+		List<LatestParcel> lp = c.getParcel();
+		model.addAttribute("bunyang", lp);
+		return "house/latestpacel";
 	}
 	
 	@GetMapping("/main")

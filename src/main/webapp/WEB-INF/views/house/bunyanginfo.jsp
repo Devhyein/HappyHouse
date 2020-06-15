@@ -62,10 +62,10 @@
 
 				<h1 class="my-4"></h1>
 				<div class="list-group">
-					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">가격
-						추세 보기</a> <a href="${root}/parcel.do/chartinfo"
-						class="list-group-item">그래프로 보기</a> <a
-						href="${root}/house.do/streetlamp" class="list-group-item">현재
+					<a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양가 추세(table)</a> 
+						<a href="${root}/parcel.do/chartinfo"
+						class="list-group-item">분양가 추세(chart)</a> <a
+						href="${root}/parcel.do/latest" class="list-group-item">현재
 						분양 정보</a>
 				</div>
 
@@ -73,7 +73,7 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-8">
 
-				<h3>가격 추세</h3>
+				<h3>분양가 추세</h3>
 				<br>
 				<table class="table" align="center">
 					<tbody align="center">
