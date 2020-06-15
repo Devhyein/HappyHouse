@@ -24,20 +24,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-	function pageMove(pg) {
-		document.getElementById("pg").value = pg;
-		location.href = "${root}/parcel.do/main?pg=" + pg;
-
-	}
-	function pageMove_search(pg) {
-		document.getElementById("pg").value = pg;
-		document.getElementById("loginform").action = "${root}/parcel.do/search?pg="
-				+ pg;
-		document.getElementById("loginform").submit();
-	}
-</script>
-
 <script>
 	$(function() {
 		var autocomplete_text = [];
@@ -93,7 +79,7 @@
 							<tr class="row">
 								<td class="col-md-1">${parcel.ptype}</td>
 								<td class="col-md-2">${parcel.pname}</td>
-								<td class="col-md-2"><a href=#>${parcel.location}</a></td>
+								<td class="col-md-2"><a href="${root}/parcel.do/detail?location='${parcel.location}'">${parcel.location}</a></td>
 								<td class="col-md-2">${parcel.price}</td>
 								<td class="col-md-1">${parcel.capacity}</td>
 								<td class="col-md-2">${parcel.ptime}</td>
