@@ -78,7 +78,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[0]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/016/2020/05/23/1677064.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[0]}"><img class="card-img-top" src="${newsinfo.image[0]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[0]}</a>
@@ -90,7 +90,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[1]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/277/2020/06/09/4694884.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[1]}"><img class="card-img-top" src="${newsinfo.image[1]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[1]}</a>
@@ -102,7 +102,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[2]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/119/2020/03/20/2390452.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[2]}"><img class="card-img-top" src="${newsinfo.image[2]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[2]}</a>
@@ -114,7 +114,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[3]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/011/2020/06/11/3751783.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[3]}"><img class="card-img-top" src="${newsinfo.image[3]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[3]}</a>
@@ -126,7 +126,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[4]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/417/2018/07/30/332516.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[4]}"><img class="card-img-top" src="${newsinfo.image[4]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[4]}</a>
@@ -138,7 +138,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[5]}"><img class="card-img-top" src="https://s.pstatic.net/imgnews/image/thumb100/008/2020/06/12/4424043.jpg" alt=""></a>
+              <a href="${newsinfo.headUrl[5]}"><img class="card-img-top" src="${newsinfo.image[5]}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">${newsinfo.headText[5]}</a>

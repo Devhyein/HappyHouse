@@ -20,12 +20,13 @@ public class HomeController {
 		Crawler c = new Crawler(); 
 		m.addAttribute("newsinfo", c);
 		session.invalidate();
-		for (int i = 0; i < 6; i++) {
-			System.out.println(c.getHeadText()[i]);
-			System.out.println(c.getHeadUrl()[i]);	
-			System.out.println(c.getContentUrl()[i]);	
-			System.out.println(c.getContentText()[i]);				
-		}
+		/*
+		 * for (int i = 0; i < 6; i++) { System.out.println(c.getHeadText()[i]);
+		 * System.out.println(c.getHeadUrl()[i]);
+		 * System.out.println(c.getContentUrl()[i]);
+		 * System.out.println(c.getContentText()[i]);
+		 * System.out.println(c.getImage()[i]); }
+		 */
 		return "/user/login";
 	}
 }
