@@ -23,6 +23,11 @@
    <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
   
+  <!-- Chart js CDN -->
+  <script
+	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  
+  
   <style>
 	.customoverlay {position:relative;bottom:75px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
 	.customoverlay .title {display:block;text-align:center;background:#1a9c77;padding:10px 15px;font-size:15px;font-weight:bold;color:white;}
@@ -37,7 +42,7 @@
 	<div class="row">
 		<div class="col-md">
 			<!-- 지도 -->
-			<div id="map" style="width: 1000px; height: 500px;"></div>
+			<div id="map" style="width: 1000px; height: 500px; margin-left:20px;"></div>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ce3994029fb75698f5aab6f4d94e9c7"></script>
 			<script>
@@ -172,44 +177,57 @@
 	</div>
 	</br>
 	</br>
-
-	<h5 style="margin-left:20px;">주변 상권 정보</h5>
-
-	<c:choose>
-		<c:when test="${shops.size() ==0 }">
-			<h3>상권 정보가 없습니다.</h3>
-
-		</c:when>
-
-		<c:otherwise>
-		<table class="table table-active">
-					<tbody align="center">
-						<tr class="row">
-							<th class="col-md-2">상호명</th>
-							<th class="col-md-2">분류</th>
-							<th class="col-md-1">층 정보</th>
-							<th class="col-md">도로명주소</th>
-							<th class="col-md-2">위도</th>
-							<th class="col-md-2">경도</th>
-						</tr>
-			<c:forEach var="shop" items="${shops}">
-				</br>
-				</br>
-				<table class="table">
-					<tbody align="center">
-						<tr class="row">
-							<td class="col-md-2">${shop.shopName }</td>
-							<td class="col-md-2">${shop.smallCategoryName }</td>
-							<td class="col-md-1">${shop.floorInfo }</td>
-							<td class="col-md">${shop.roadAddress }</td>
-							<td class="col-md-2">${shop.longitude}</td>
-							<td class="col-md-2">${shop.latitude }</td>
-						</tr>
-					</tbody>
-				</table>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
+	<div class="container col-md">
+		<h5>주변 인구 정보</h5>
+		<canvas id="myChart" style="height:50vh; width:95vw;"></canvas>
+	</div>
+	<!-- Bar Chart -->
+	<script>
+		// 우선 컨텍스트를 가져옵니다. 
+		var ctx = document.getElementById("myChart").getContext('2d');
+		/*
+		- Chart를 생성하면서, 
+		- ctx를 첫번째 argument로 넘겨주고, 
+		- 두번째 argument로 그림을 그릴때 필요한 요소들을 모두 넘겨줍니다. 
+		*/
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: ["0~10대", "10대", "20대", "30대", "40대", "50대", "60대", "70대이상",],
+		        datasets:[
+		        	<c:forEach items="${population}" var="item" varStatus="status">
+		        	{
+		        		label:'Man',
+		        		data:[
+		        			"${item.man0_9}","${item.man10_14+item.man15_19}","${item.man20_24+item.man25_29}","${item.man30_34+item.man35_39}",
+		        			"${item.man40_44+item.man45_49}","${item.man50_54+item.man55_59}","${item.man60_64+item.man65_69}","${item.man70}",
+		        		],
+		        		backgroundColor:'rgb(255, 99, 132, 0.4)'
+		        	},
+		        	{
+		        		label:'Woman',
+		        		data:[
+		        			"${item.woman0_9}","${item.woman10_14+item.woman15_19}","${item.woman20_24+item.woman25_29}","${item.woman30_34+item.woman35_39}",
+		        			"${item.woman40_44+item.woman45_49}","${item.woman50_54+item.woman55_59}","${item.woman60_64+item.woman65_69}","${item.woman70}"
+		        		],
+		        		backgroundColor:'rgb(75, 192, 192, 0.4)'
+		        	}
+		        	</c:forEach>
+		        ]
+		    },
+		    options: {
+		        maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+		        responsive: false,
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+		</script>
 
  <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </body>
