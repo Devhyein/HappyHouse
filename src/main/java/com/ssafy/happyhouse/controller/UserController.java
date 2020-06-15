@@ -3,6 +3,7 @@ package com.ssafy.happyhouse.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ssafy.happyhouse.crawling.Crawler;
 import com.ssafy.happyhouse.model.dto.HouseMember;
+import com.ssafy.happyhouse.model.dto.NewsData;
 import com.ssafy.happyhouse.model.service.HouseMemberService;
 import com.ssafy.happyhouse.model.service.HouseMemberServiceImpl;
 
@@ -43,9 +45,10 @@ public class UserController {
 	public String login(HouseMember user, HttpSession session) throws SQLException, IOException {
 		boolean result = houseMemberService.login(user);
 		Crawler c = new Crawler(); 
+		List<NewsData> nl = c.getNewsData();
 		if(result) {
 			session.setAttribute("id", user.getId());
-			session.setAttribute("newsinfo", c);
+			session.setAttribute("newsinfo", nl);
 			return "redirect:/index.jsp";
 		}else{
 			return "redirect:/index.jsp";

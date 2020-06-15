@@ -75,97 +75,27 @@
 
 		<h3>실시간 뉴스</h3><br>
         <div class="row">
+		<c:forEach var="newsinfo" items="${newsinfo}">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="${newsinfo.headUrl[0]}"><img class="card-img-top" src="${newsinfo.image[0]}" alt="" style="width: 100%; height: 150px;"></a>
+              <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 150px;"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[0]}</a>
+                  <a href="#">${newsinfo.headText}</a>
                 </h4>
-                <p class="card-text">${newsinfo.contentText[0]}</p>
+                <p class="card-text">${newsinfo.contentText}</p>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl[1]}"><img class="card-img-top" src="${newsinfo.image[1]}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[1]}</a>
-                </h4>
-                <p class="card-text">${newsinfo.contentText[1]}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl[2]}"><img class="card-img-top" src="${newsinfo.image[2]}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[2]}</a>
-                </h4>
-                <p class="card-text">${newsinfo.contentText[2]}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl[3]}"><img class="card-img-top" src="${newsinfo.image[3]}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[3]}</a>
-                </h4>
-                <p class="card-text">${newsinfo.contentText[3]}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl[4]}"><img class="card-img-top" src="${newsinfo.image[4]}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[4]}</a>
-                </h4>
-                <p class="card-text">${newsinfo.contentText[4]}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl[5]}"><img class="card-img-top" src="${newsinfo.image[5]}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">${newsinfo.headText[5]}</a>
-                </h4>
-                <p class="card-text">${newsinfo.contentText[5]}</p>
-              </div>
-            </div>
-          </div>
-
+          </div>		
+		</c:forEach>
         </div>
         <!-- /.row -->
-
       </div>
       <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
   </div>
   <!-- /.container -->
-
-  <!-- Footer -->
-<!--   <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-    /.container
-  </footer> -->
 <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

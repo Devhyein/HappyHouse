@@ -1,28 +1,25 @@
 package com.ssafy.happyhouse.crawling;
 
 import java.io.IOException;
-import java.util.Arrays;
-
-import org.jsoup.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.ssafy.happyhouse.model.dto.LatestParcel;
+import com.ssafy.happyhouse.model.dto.NewsData;
+
 public class Crawler {
-	private String[] headUrl;
-	private String[] headText;
-	private String[] contentUrl;
-	private String[] contentText;
-	private String[] image;
+	List<LatestParcel> plist;
+	List<NewsData> nlist;
 	private int count = 0;
 	public Crawler() throws IOException {
 		// TODO Auto-generated constructor stub
-
-		NewsCrawling();
 	}
 
-	public void NewsCrawling() throws IOException {
+	public List<NewsData> getNewsData() throws IOException {
+		nlist = new ArrayList<NewsData>();
 		String url = "https://land.naver.com/news/";
 		Document rawData = Jsoup.connect(url)
                 .timeout(5000)
@@ -30,84 +27,48 @@ public class Crawler {
 		Elements headlineUrl = rawData.select("li a.headline");
 		Elements articleUrl = rawData.select("div.wrap li a:not(.headline)");
 		count = 6;
-		headUrl = new String[count];
-		headText = new String[count];
-		contentUrl = new String[count];
-		contentText = new String[count];
-		image = new String[count];
 		for (int i = 0; i < count; i++) {
-			headUrl[i] = headlineUrl.get(i).attr("abs:href");
-			headText[i] = headlineUrl.get(i).text();
-			contentUrl[i] = articleUrl.get(i).attr("abs:href");
-			contentText[i] = articleUrl.get(i).text();
-			Elements imagedata = Jsoup.connect(headUrl[i])
+			String headUrl = headlineUrl.get(i).attr("abs:href");
+			String headText = headlineUrl.get(i).text();
+			String contentUrl = articleUrl.get(i).attr("abs:href");
+			String contentText = articleUrl.get(i).text();
+			Elements imagedata = Jsoup.connect(headUrl)
 	                .timeout(5000)
 	                .get().select("dt.photo img");
-			image[i] = imagedata.get(0).attr("src");
-			
+			String image = imagedata.get(0).attr("src");
+			nlist.add(new NewsData(headUrl, headText, contentUrl, contentText, image));
+			System.out.println(nlist.get(i));
 		}
-//		String url = "https://land.naver.com/news/hotIssue.nhn";
-//		Document rawData = Jsoup.connect(url).timeout(10000).get();
-//		Elements link = rawData.select("div.hot_list dl.hot_issue dt.photo a" ); 
-//		Elements link2 = rawData.select("div.hot_list dl.hot_issue dt:not(.photo) a" ); 
-//		Elements link3 = rawData.select("div.hot_list dl.hot_issue dd" ); 
-//		String temp = link.get(0).attr("abs:href");
-//		String temp2 = link2.get(0).attr("abs:href");
-//		String temp3 = link3.get(0).text();
-//		
-//		System.out.println(temp);
-//		System.out.println(temp2);
-//		System.out.println(temp3);
-
+		return nlist;
 	}
 
-	public String[] getHeadUrl() {
-		return headUrl;
+	public List<LatestParcel> getParcel() throws IOException {
+		plist = new ArrayList<LatestParcel>();
+		String url = "https://www.boonyang24.com/?sub=boonyang_info/info_list";
+		Document rawData = Jsoup.connect(url)
+                .timeout(10000)
+                .get();
+		Elements parceldata1 = rawData.select("div.list_type_boonyang table tbody tr td span");
+		Elements parceldata2 = rawData.select("div.list_type_boonyang table tbody tr td p");
+		Elements parceldata4 = rawData.select("div.list_type_boonyang table tbody tr td strong");
+		int count = parceldata4.size();
+		for (int i = 0; i < count; i++) {
+			String ptype = parceldata2.get(1+i*6).text();
+			String pname = parceldata4.get(i).text();
+			String location = parceldata1.get(i*2+1).text();
+			String capacity = parceldata2.get(3+i*6).text();
+			String ptime = parceldata2.get(4+i*6).text();
+			String ltime = 	parceldata2.get(5+i*6).text();
+			String price = parceldata2.get(2+i*6).text();
+			plist.add(new LatestParcel(ptype,pname,location, price,
+			 capacity, ptime, ltime));
+			System.out.println(plist.get(i));
+		}
+		return plist;
 	}
-
-	public void setHeadUrl(String[] headUrl) {
-		this.headUrl = headUrl;
-	}
-
-	public String[] getHeadText() {
-		return headText;
-	}
-
-	public void setHeadText(String[] headText) {
-		this.headText = headText;
-	}
-
-	public String[] getContentUrl() {
-		return contentUrl;
-	}
-
-	public void setContentUrl(String[] contentUrl) {
-		this.contentUrl = contentUrl;
-	}
-
-	public String[] getContentText() {
-		return contentText;
-	}
-
-	public void setContentText(String[] contentText) {
-		this.contentText = contentText;
-	}
-
-	@Override
-	public String toString() {
-		return "Crawler [headUrl=" + Arrays.toString(headUrl) + ", headText=" + Arrays.toString(headText)
-				+ ", contentUrl=" + Arrays.toString(contentUrl) + ", contentText=" + Arrays.toString(contentText) + "]";
-	}
-	
-	public String[] getImage() {
-		return image;
-	}
-
-	public void setImage(String[] image) {
-		this.image = image;
-	}
-
 	public static void main(String[] args) throws IOException {
 		Crawler c = new Crawler();
+		c.getParcel();
+		c.getNewsData();
 	}
 }
