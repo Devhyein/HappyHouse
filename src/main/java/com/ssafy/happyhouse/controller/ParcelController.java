@@ -57,6 +57,7 @@ public class ParcelController {
 			if(latestParcel.getLocation().equals(location))
 				lp = latestParcel;
 		}
+		model.addAttribute("location",location);
 		model.addAttribute("bunyang", lp);
 		return "house/parceldetail";
 	}
