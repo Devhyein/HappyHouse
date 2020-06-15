@@ -68,8 +68,7 @@
 				</div>
 
 			</div>
-			<div class="col-lg-1"></div>
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 
 				<h3>현재 분양정보</h3>
 				<br>

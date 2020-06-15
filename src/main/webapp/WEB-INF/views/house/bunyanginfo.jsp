@@ -70,8 +70,7 @@
 				</div>
 
 			</div>
-			<div class="col-lg-1"></div>
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 
 				<h3>분양가 추세</h3>
 				<br>
