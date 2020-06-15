@@ -30,7 +30,7 @@
 			var geocoder = new kakao.maps.services.Geocoder();
 	
 			// 주소로 좌표를 검색합니다
-			var loc = "서울특별시 동작구 상도동 159-250";
+			var loc = '${bunyang.location}';
 			geocoder.addressSearch(loc, function(result, status) {
 	
 								// 정상적으로 검색이 완료됐으면 
@@ -48,7 +48,7 @@
 									// 인포윈도우로 장소에 대한 설명을 표시합니다
 									var infowindow = new kakao.maps.InfoWindow(
 											{
-												content : '<div style="width:150px;text-align:center;padding:6px 0;">서울특별시 동작구 상도동 159-250</div>'
+												content : '<div style="width:150px;text-align:center;padding:6px 0;">${bunyang.location}</div>'
 											});
 									infowindow.open(map, marker);
 	

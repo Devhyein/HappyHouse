@@ -60,7 +60,7 @@ public class Crawler {
 			String ptime = parceldata2.get(4+i*6).text();
 			String ltime = 	parceldata2.get(5+i*6).text();
 			String price = parceldata2.get(2+i*6).text();
-			plist.add(new LatestParcel(ptype,pname,location, price,
+			plist.add(new LatestParcel(i,ptype,pname,location, price,
 			 capacity, ptime, ltime));
 			System.out.println(plist.get(i));
 		}

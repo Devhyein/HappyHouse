@@ -5,9 +5,10 @@ public class LatestParcel {
 	 * 분양종류 ptype 사업명 pname 위치 location 면적 area 가격 price 세대수 capacity 분양시기 ptime
 	 * 입주시기 ltime
 	 */
+	private int no;
 	private String ptype;
 	private String pname;
-	private String location;	
+	private String location;
 	private String price;
 	private String capacity;
 	private String ptime;
@@ -17,17 +18,25 @@ public class LatestParcel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LatestParcel(String ptype, String pname, String location, String price,
-			String capacity, String ptime, String ltime) {
+	public LatestParcel(int no, String ptype, String pname, String location, String price, String capacity,
+			String ptime, String ltime) {
 		super();
+		this.no = no;
 		this.ptype = ptype;
 		this.pname = pname;
 		this.location = location;
-
 		this.price = price;
 		this.capacity = capacity;
 		this.ptime = ptime;
 		this.ltime = ltime;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getPtype() {
@@ -53,7 +62,6 @@ public class LatestParcel {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
 
 	public String getPrice() {
 		return price;
@@ -89,8 +97,8 @@ public class LatestParcel {
 
 	@Override
 	public String toString() {
-		return "LatestParcel [ptype=" + ptype + ", pname=" + pname + ", location=" + location + ", price=" + price + ", capacity=" + capacity + ", ptime=" + ptime + ", ltime="
-				+ ltime + "]";
+		return "LatestParcel [no=" + no + ", ptype=" + ptype + ", pname=" + pname + ", location=" + location
+				+ ", price=" + price + ", capacity=" + capacity + ", ptime=" + ptime + ", ltime=" + ltime + "]";
 	}
 
 }

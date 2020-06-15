@@ -49,15 +49,11 @@ public class ParcelController {
 	}
 	
 	@GetMapping("/detail")
-	public String showParcelDetail(String location, Model model) throws SQLException, IOException {
+	public String showParcelDetail(int no, Model model) throws SQLException, IOException {
 		Crawler c = new Crawler();
 		LatestParcel lp = null;
 		List<LatestParcel> list = c.getParcel();
-		for (LatestParcel latestParcel : list) {
-			if(latestParcel.getLocation().equals(location))
-				lp = latestParcel;
-		}
-		model.addAttribute("location",location);
+		lp = list.get(no);
 		model.addAttribute("bunyang", lp);
 		return "house/parceldetail";
 	}

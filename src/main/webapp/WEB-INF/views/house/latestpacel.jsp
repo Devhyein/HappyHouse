@@ -79,7 +79,7 @@
 							<tr class="row">
 								<td class="col-md-1">${parcel.ptype}</td>
 								<td class="col-md-2">${parcel.pname}</td>
-								<td class="col-md-2"><a href="${root}/parcel.do/detail?location='${parcel.location}'">${parcel.location}</a></td>
+								<td class="col-md-2"><a href="${root}/parcel.do/detail?no=${parcel.no}">${parcel.location}</a></td>
 								<td class="col-md-2">${parcel.price}</td>
 								<td class="col-md-1">${parcel.capacity}</td>
 								<td class="col-md-2">${parcel.ptime}</td>
