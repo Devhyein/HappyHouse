@@ -17,8 +17,10 @@ import com.ssafy.happyhouse.model.dto.HouseDeal;
 import com.ssafy.happyhouse.model.dto.HouseInfo;
 import com.ssafy.happyhouse.model.dto.HousePageBean;
 import com.ssafy.happyhouse.model.dto.Lamp;
+import com.ssafy.happyhouse.model.dto.Population;
 import com.ssafy.happyhouse.model.service.HouseService;
 import com.ssafy.happyhouse.model.service.LampService;
+import com.ssafy.happyhouse.model.service.PopulationService;
 import com.ssafy.happyhouse.util.PageNavigation;
 
 /**
@@ -30,6 +32,7 @@ public class HouseController extends HttpServlet {
 
 	private HouseService service;
 	private LampService lampService;
+	private PopulationService popService;
 //	TradeHubService shopService;
 
 	@Autowired
@@ -42,7 +45,10 @@ public class HouseController extends HttpServlet {
 		this.lampService = lampService;
 	}
 
-
+	@Autowired
+	public void setPopService(PopulationService popService) {
+		this.popService = popService;
+	}
 
 	@GetMapping("/main")
 	public String showMainView(String group, int pg, Model model) {
@@ -138,9 +144,15 @@ public class HouseController extends HttpServlet {
 		HouseDeal deal = service.search(no);
 		HouseInfo info = service.searchInfo(deal);
 		List<HouseInfo> near = service.searchNearHouse(info);
+		
+		//법정동 코드로 인구수 받아오기
+		List<Population> population = popService.getPopulation(deal.getCode());
+		
+		
 		model.addAttribute("deal", deal);
 		model.addAttribute("info", info);
 		model.addAttribute("near", near);
+		model.addAttribute("population", population);
 		return "house/houseInfo";
 	}
 	
@@ -149,9 +161,14 @@ public class HouseController extends HttpServlet {
 		HouseDeal deal = service.searchByInfo(no);
 		HouseInfo info = service.searchInfo(deal);
 		List<HouseInfo> near = service.searchNearHouse(info);
+		
+		//법정동 코드로 인구수 받아오기
+		List<Population> population = popService.getPopulation(deal.getCode());
+				
 		model.addAttribute("deal", deal);
 		model.addAttribute("info", info);
 		model.addAttribute("near", near);
+		model.addAttribute("population", population);
 		return "house/houseInfo";
 	}
 	

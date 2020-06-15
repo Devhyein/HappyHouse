@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.model.dao.PopulationDao">
+	<select id="getPopulation" resultType="Population">
+		select sum(man0_9) as man0_9, sum(man10_14) as man10_14, sum(man15_19) as man15_19,sum(man20_24) as man20_24,
+		sum(man25_29) as man25_29, sum(man30_34) as man30_34,sum(man35_39) as man35_39,sum(man40_44) as man40_44,
+		sum(man45_49) as man45_49,sum(man50_54) as man50_54,
+		sum(man55_59) as man55_59,sum(man60_64) as man60_64,sum(man65_69) as man65_69,sum(man70) as man70,
+		sum(woman0_9) as woman0_9, sum(woman10_14) as woman10_14, sum(woman15_19) as woman15_19,
+		sum(woman20_24) as woman20_24,sum(woman25_29) as woman25_29,
+		sum(woman30_34) as woman30_34,sum(woman35_39) as woman35_39,sum(woman40_44) as woman40_44,
+		sum(woman45_49) as woman45_49,sum(woman50_54) as woman50_54,
+		sum(woman55_59) as woman55_59,sum(woman60_64) as woman60_64,sum(woman65_69) as woman65_69,sum(woman70) as woman70
+		from people where code=#{code} and time=12
+	</select>
+</mapper>
