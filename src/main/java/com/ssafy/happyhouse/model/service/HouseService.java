@@ -34,6 +34,7 @@ public interface HouseService {
 	 * @return 아파트 식별 번호에 해당하는 아파트 거래 정보를 찾아서 리턴한다, 없으면 null이 리턴됨
 	 */
 	public HouseDeal search(int no);
+	public HouseDeal searchByInfo(int no);
 
 	// 구현한 부분 코드
 	// 입력
@@ -58,5 +59,9 @@ public interface HouseService {
 
 	public List<String> searchDongList();
 	public List<String> searchAptNameList();
+
+	public HouseInfo searchInfo(HouseDeal deal);
+	//현재 지도에 표시된 집 근처 집들도 표시
+	public List<HouseInfo> searchNearHouse(HouseInfo info);
 
 }

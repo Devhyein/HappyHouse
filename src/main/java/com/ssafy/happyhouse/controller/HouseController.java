@@ -136,7 +136,22 @@ public class HouseController extends HttpServlet {
 	@PostMapping("house_info")
 	public String showHouseInfo(int no, Model model) {
 		HouseDeal deal = service.search(no);
+		HouseInfo info = service.searchInfo(deal);
+		List<HouseInfo> near = service.searchNearHouse(info);
 		model.addAttribute("deal", deal);
+		model.addAttribute("info", info);
+		model.addAttribute("near", near);
+		return "house/houseInfo";
+	}
+	
+	@PostMapping("house_info2")
+	public String showHouseInfo2(int no, Model model) {
+		HouseDeal deal = service.searchByInfo(no);
+		HouseInfo info = service.searchInfo(deal);
+		List<HouseInfo> near = service.searchNearHouse(info);
+		model.addAttribute("deal", deal);
+		model.addAttribute("info", info);
+		model.addAttribute("near", near);
 		return "house/houseInfo";
 	}
 	

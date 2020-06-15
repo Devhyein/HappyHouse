@@ -9,6 +9,10 @@
 	<select id="search" parameterType="int" resultType="HouseDeal">
 		select * from housedeal where no=#{no}
 	</select>
+	
+	<select id="searchByInfo" parameterType="int" resultType="HouseDeal">
+		select * from houseinfo where no=#{no}
+	</select>
 
 	<select id="searchAll" resultType="HouseDeal">
 		select * from housedeal
@@ -44,6 +48,11 @@
 		#{sizePerPage}
 	</select>
 	
+	<select id="searchInfo" parameterType="HouseDeal" resultType="HouseInfo">
+		select * from houseinfo
+		where AptName = #{aptName}
+	</select>
+	
 	<select id="getTotalCount" parameterType="HousePageBean" resultType="int">
 		select count(*) from housedeal 
 		where type in
@@ -60,11 +69,27 @@
 	</select>
 	
 	<select id="searchDongList" resultType="string">
-		select distinct(dong) from housedeal;
+		select distinct(dong) from housedeal
+		<!-- where type in
+		<foreach collection="type" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach> -->
 	</select>
 	
 	<select id="searchAptNameList" resultType="string">
-		select distinct(aptName) from housedeal;
+		select distinct(aptName) from housedeal
 	</select>
+	
+	<select id="searchNearHouse" resultType="HouseInfo">
+		<![CDATA[select *,(6371*acos(cos(radians(#{lat}))*cos(radians(lat))*cos(radians(lng) -radians(#{lng}))+sin(radians(#{lat}))*sin(radians(lat))))
+		AS distance 
+		from houseinfo
+		having distance <= 1
+		ORDER BY distance 
+		LIMIT 0,100;]]>
+	</select>
+	
+
 
 </mapper>

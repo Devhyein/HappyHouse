@@ -104,6 +104,19 @@ public class HouseServiceImpl implements HouseService{
 		}
 	}
 	
+	public HouseDeal searchByInfo(int no) {
+		try {
+			HouseDeal deal = dao.searchByInfo(no);
+			
+			if(deal == null) {
+				throw new HappyHouseException(String.format("거래번호 %d번에 해당하는 주택거래 정보가 존재하지 않습니다.", no));
+			}
+			return deal;
+		} catch (SQLException e) {
+			throw new HappyHouseException("주택 정보 조회 중 오류 발생");
+		}
+	}
+	
 	@Override
 	public PageNavigation makePageNavigation(int currentPage, int sizePerPage, HousePageBean bean) throws SQLException {
 		PageNavigation pageNavigation = new PageNavigation();
@@ -130,6 +143,16 @@ public class HouseServiceImpl implements HouseService{
 	@Override
 	public List<String> searchAptNameList() {
 		return dao.searchAptNameList();
+	}
+
+	@Override
+	public HouseInfo searchInfo(HouseDeal deal) {
+		return dao.searchInfo(deal);
+	}
+
+	@Override
+	public List<HouseInfo> searchNearHouse(HouseInfo info) {
+		return dao.searchNearHouse(info);
 	}
 
 //	@Override
