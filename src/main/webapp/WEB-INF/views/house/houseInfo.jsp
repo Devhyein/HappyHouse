@@ -40,6 +40,9 @@
 		<div class="col-md">
 			<!-- 지도 -->
 			<div id="map" style="width: 1000px; height: 500px; margin-left:20px;"></div>
+			<div style="margin-left:20px;margin-top:20px;">
+			<h6>빨간색 마커는 현재 선택된 집을, 까만색 마커는 근처 거래중인 집을 의미합니다~^^*</h6>
+			</div>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ce3994029fb75698f5aab6f4d94e9c7"></script>
 			<script>
@@ -103,7 +106,7 @@
 					        image:markerImage
 					    });
 					    var infowindow = new kakao.maps.InfoWindow({ 
-					    	content: '<form method="post" action="${root}/house.do/house_info2"><button class="btn btn-primary btn-sx" name="no" value="${item.no}" type="submit">"${item.aptName}"으로 이동</button></form>', 
+					    	content: '<form method="post" action="${root}/house.do/house_info2"><button class="btn btn-primary btn-sx" name="no" value="${item.no}" type="submit">"${item.aptName}"</button></form>', 
 					    	removable : true });
 			
 					    kakao.maps.event.addListener(nearMarker, 'click', makeOverListener(map, nearMarker, infowindow));
