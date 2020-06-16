@@ -154,6 +154,8 @@ $(function() {
 							<button type="button" class="btn btn-warning"
 								onclick="javascript:pageMove_search(1);">검색</button>
 						</div>
+						
+						
 						</div>
 					</form>
 				</div>
@@ -164,8 +166,8 @@ $(function() {
 			<tbody align="center">
 				<tr class="table-active row">
 					<th class="col-md-2">상세보기</th>
-					<th class="col-md-1">Dong</th>
-					<th class="col-md">aptName</th>
+					<th class="col-md-1">동</th>
+					<th class="col-md">건물명</th>
 					<th class="col-md-1">건설년도</th>
 					<th class="col-md-1">거래가</th>
 					<th class="col-md-1">거래일자</th>
