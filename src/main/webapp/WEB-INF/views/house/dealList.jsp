@@ -1,11 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<!DOCTYPE html>
-<html>
-<%@ include file="/WEB-INF/views/header/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <c:set var="root" value="${pageContext.request.contextPath }"/>
 
-<c:set var="root" value="${pageContext.request.contextPath }" />
+<!doctype html>
+<html>
+  <head>
+  	<title>HappyHouse</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- chart.js CDN -->	
+		<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+		
 <script type="text/javascript">
 	function pageMove(pg) {
 		document.getElementById("pg").value = pg;
@@ -37,7 +54,6 @@
 	}
 </script>
 
-
 <script>
 $(function() {
 	var autocomplete_text = [];
@@ -53,10 +69,47 @@ $(function() {
 	});
 });
 </script>
-<!-- jquery autocomplete -->	
-<br><br><br><br>
-<body>
-	<div class="page-wrapper">
+  </head>
+  <body>
+	<div class="wrapper d-flex align-items-stretch">
+	  <!-- 사이드바 추가 -->
+	  <%@ include file="/WEB-INF/views/sidebar/sidebar.jsp"%>
+      <!-- 메인 페이지 내용  -->
+      <div id="content" class="p-5 p-md-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+					<li class="nav-item active">
+                    	<a class="nav-link" href="#">Home</a>
+                	</li>
+				<c:choose>
+					<c:when test="${empty id}">
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font>  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
+					</c:when>
+				
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform"><font size="2em">회원 정보</font></a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font>  </a></li>
+					</c:otherwise>
+				</c:choose>				
+			  </ul>
+            </div>
+          </div>
+        </nav> 
+<!-- 여기에요 여기 -->
+     <div class="row">
+<div class="col-lg-12">
 		<div class="section" style="margin-bottom: 30px;">
 		
 			<div class="container-fluid">
@@ -149,5 +202,13 @@ $(function() {
 		</c:forEach>
 		<div class="text-center">${navigation.navigator}</div>
 	</div>
-</body>
+  </div>
+  </div>
+</div>
+	
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/popper.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+  </body>
 </html>

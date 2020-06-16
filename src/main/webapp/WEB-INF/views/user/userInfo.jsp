@@ -4,7 +4,6 @@
 <c:set var="root" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
-<%@ include file="/WEB-INF/views/header/header.jsp"%>
 <head>
 <style>
 section {

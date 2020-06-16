@@ -1,36 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="root" value="${pageContext.request.contextPath }" />
-<!DOCTYPE html>
+ <c:set var="root" value="${pageContext.request.contextPath }"/>
 
+<!doctype html>
 <html>
-<head>
+  <head>
+  	<title>HappyHouse</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Happy House</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
-  
-  <!-- Chart js CDN -->
-  <script
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- chart.js CDN -->	
+		<script
 	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  
-  
-  <style>
-	.customoverlay {position:relative;bottom:75px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
-	.customoverlay .title {display:block;text-align:center;background:#1a9c77;padding:10px 15px;font-size:15px;font-weight:bold;color:white;}
-	.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-</style>
-
+		
 <script>
 function setTime(time){
 	var f = document.createElement('form');
@@ -55,15 +47,50 @@ function setTime(time){
 }
 </script>
 
-</head>
-<body>
- <%@ include file="/WEB-INF/views/header/header.jsp"%>
-<br/><br/><br/>
-	<div class="row justify-content-md-center">
+  </head>
+  <body>
+	<div class="wrapper d-flex align-items-stretch">
+	  <!-- 사이드바 추가 -->
+	  <%@ include file="/WEB-INF/views/sidebar/sidebar.jsp"%>
+      <!-- 메인 페이지 내용  -->
+      <div id="content" class="p-5 p-md-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+					<li class="nav-item active">
+                    	<a class="nav-link" href="#">Home</a>
+                	</li>
+				<c:choose>
+					<c:when test="${empty id}">
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font>  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
+					</c:when>
+				
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform"><font size="2em">회원 정보</font></a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font>  </a></li>
+					</c:otherwise>
+				</c:choose>				
+			  </ul>
+            </div>
+          </div>
+        </nav> 
+<!-- 여기에요 여기 -->
+     <div class="row">
 		<div class="col col-md-auto mr-5">
 			<!-- 지도 -->
 			<h5 class="ml-3">지도 정보</h5>
-			<div id="map" style="width: 1000px; height: 500px; margin-left:20px;"></div>
+			<div id="map" style="width: 600px; height: 500px; margin-left:20px;"></div>
 			<div style="margin-left:20px;margin-top:20px;">
 			<h6>빨간색 마커는 현재 선택된 집을, 까만색 마커는 근처 거래중인 집을 의미합니다~^^*</h6>
 			</div>
@@ -148,7 +175,7 @@ function setTime(time){
 			
 		<!-- 지도 -->
 		</div>
-		<div class="col col-md-auto ml-5">
+		<div class="col col-4">
 		<h5>상세 정보</h5>
 		
 		<table class="table col-md">
@@ -201,11 +228,11 @@ function setTime(time){
 	</div>
 	</br>
 	</br>
-	<div class="row justify-content-md-center">
+	<div class="row justify-content-md-left">
 		<div class="col col-md-auto">
-			<span class="row">
-				<h5 class="col-md-4">시간대 별 인구 정보</h5>
-				<p class="col-md-6">(원하는 시간대를 선택 해 주세요.)</p>
+			<div class="row">
+				<h5 class="col-md-4">시간 별 인구 정보</h5>
+				<p class="col-md-6">(원하는 시간을 선택 해 주세요.)</p>
 				<select class="col-md-2" name="time" onchange="setTime(this.value);">
 					<option value="0" <c:if test="${selected==0}">selected</c:if>>00시</option>
 					<option value="1" <c:if test="${selected==1}">selected</c:if>>01시</option>
@@ -232,17 +259,20 @@ function setTime(time){
 					<option value="22" <c:if test="${selected==22}">selected</c:if>>22시</option>
 					<option value="23" <c:if test="${selected==23}">selected</c:if>>23시</option>
 				</select>
-			</span>
-			<canvas id="myChart" style="height:50vh; width:40vw;"></canvas>
+			</div>
+			<canvas id="myChart" style="height:50vh; width:35vw;"></canvas>
 		</div>
-		
-		<div class="col col-md-auto">
+		<br><br>
+		<div class="col col-md-4">
 			<h5>월 별 거래량 정보</h5>
-			<canvas id="dealChart" style="height:50vh; width:40vw;"></canvas>
+			<canvas id="dealChart" style="height:50vh; width:35vw;"></canvas>
+		</div>
 		</div>
 	</div>
-	
-	<!-- Population Chart -->
+  </div>
+  </div>
+</div>
+		<!-- Population Chart -->
 	<script>
 		// 우선 컨텍스트를 가져옵니다. 
 		var ctx = document.getElementById("myChart").getContext('2d');
@@ -344,7 +374,9 @@ function setTime(time){
 		    }
 		});
 	</script>
-
- <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
-</body>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/popper.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+  </body>
 </html>

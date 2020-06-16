@@ -9,15 +9,18 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="resources/css/style.css">
+		<link rel="stylesheet" href="../resources/css/style.css">
 
 
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(resources/images/logo.jpg);"></a>
+		  		<a href="/happyhouse/index.jsp" class="img logo rounded-circle mb-5" style="background-image: url(../resources/images/logo.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
-	            <a href="/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Home</a>
+	            <a href="${root}/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Happy House</a>
+	          </li>
+	          <li>
+	              <a href="/happyhouse/index.jsp">Home</a>
 	          </li>
 	          <li>
 	              <a href="${root}/house.do/main?group=all&pg=1">거래 목록</a>
@@ -55,7 +58,7 @@
 
 	      </div>
     	</nav>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/popper.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="../resources/js/jquery.min.js"></script>
+	<script src="../resources/js/popper.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/main.js"></script>
