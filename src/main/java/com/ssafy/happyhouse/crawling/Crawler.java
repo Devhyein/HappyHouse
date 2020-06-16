@@ -11,6 +11,7 @@ import com.ssafy.happyhouse.model.dto.LatestParcel;
 import com.ssafy.happyhouse.model.dto.NewsData;
 
 public class Crawler {
+	//
 	List<LatestParcel> plist;
 	List<NewsData> nlist;
 	private int count = 0;
