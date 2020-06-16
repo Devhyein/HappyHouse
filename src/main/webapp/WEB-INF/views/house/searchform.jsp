@@ -47,7 +47,7 @@
 					class="sorting-filters text-center d-flex justify-content-center">
 					<form id="loginform" method="post" class="form-group" action="" style="margin-top:10px; width:100%">
 					<div class="form-group row">
-						<div class="form-group align-self-center mr-5"><h4>거래 검색</h4></div>
+						<!-- <div class="form-group align-self-center mr-5"><h4>거래 검색</h4></div> -->
 						<div class="form-group">
 							<input type="hidden" name="pg" id="pg" value="">
 							<div class="radio text-muted ml-5">
