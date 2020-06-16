@@ -24,32 +24,32 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="/happyhouse/index.jsp">Happy house</a>
+		<a class="navbar-brand" href="#">Happy house</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-<!-- 			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="/happyhouse/">Home <span class="sr-only">(current)</span>
+					href="/happyhouse/index.jsp">Home <!-- <span class="sr-only">(current)</span> -->
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Search</a></li>
-				
-				<li class="nav-item"><a class="nav-link" href="/happyhouse/">QnA</a></li>
-				<li class="nav-item"><a class="nav-link" href="/happyhouse/">Contact</a></li>
-			</ul> -->
+				<li class="nav-item active"><a class="nav-link" href="${root}/house.do/main?group=all&pg=1">거래 목록</a></li>				
+				<li class="nav-item active"><a class="nav-link" href="${root}/parcel.do/main?pg=1">분양 목록</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${root}/house.do/streetlamp">안전 지도</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#">QnA</a></li>
+			</ul> 
 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty id}">
-						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform">로그인  </a></li>
-						<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font>  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
 					</c:when>
 				
 					<c:otherwise>
-						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform">회원 정보   </a></li>
-						<li class="nav-item"><a class="nav-link" href="${root}/">로그아웃  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform"><font size="2em">회원 정보</font></a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font>  </a></li>
 					</c:otherwise>
 				</c:choose>				
 			</ul>

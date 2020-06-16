@@ -20,9 +20,7 @@
   <link href="/resources/css/shop-homepage.css" rel="stylesheet">
 
 </head>
-<body style="background-image: url('resources/images/background.jpg'); background-size:cover"> 
-
-<!-- onload="window.open('https://www.bunyangi.com/','','width=400px, height=400px, left=100px, top=100px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')"> -->
+<body> 
  <%@ include file="/WEB-INF/views/header/header.jsp"%>
  <c:set var="root" value="${pageContext.request.contextPath }"/>
 <!-- navigation -->
@@ -70,7 +68,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
+        </div><br>
 
 		<h3>실시간 뉴스</h3><br>
         <div class="row">

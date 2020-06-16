@@ -33,12 +33,11 @@
 						분양 정보</a>
 				</div>
 			</div>
-
 			<div class="col-lg-1"></div>
-
-			<div class="col-lg-7" style="height: 500px">
+			<div class="row col-lg-7" style="height: 500px">
+				<h4>분양가 추세</h4>
 				<canvas id="myChart"></canvas>
-			</div>
+			</div><br>	
 
 		</div>
 	</div>
@@ -96,5 +95,6 @@
 		});
 	</script>
 </body>
+<br>
 <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </html>

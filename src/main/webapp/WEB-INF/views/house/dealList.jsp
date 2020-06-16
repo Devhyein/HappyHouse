@@ -58,7 +58,7 @@ $(function() {
 });
 </script>
 <!-- jquery autocomplete -->	
-
+<br><br><br><br>
 <body>
 	<div class="page-wrapper">
 		<div class="section" style="margin-bottom: 30px;">
@@ -95,13 +95,16 @@ $(function() {
 								</select>
 							</div>
 						</div>
+						
+						<div class="form-group row">
 						<div class="form-group">
 							<input type="text" class="form-control" id="search" name="search"
-								placeholder="" value="${search}">
+								placeholder="" value="${search}" style="width:500px">
 						</div>
 						<div class="form-group" align="center">
-							<button type="button" class="btn btn-warning col-md-4"
+							<button type="button" class="btn btn-warning"
 								onclick="javascript:pageMove_search(1);">검색</button>
+						</div>
 						</div>
 					</form>
 				</div>

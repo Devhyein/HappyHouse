@@ -71,8 +71,8 @@
 
 			</div>
 			<div class="col-lg-8" style="padding-left:100px">
-
-				<h3>분양가 추세</h3>
+				
+				<h3>분양가 목록</h3>
 				<br>
 				<table class="table" align="center">
 					<tbody align="center">
@@ -103,22 +103,7 @@
 				<div class="text-center">${navigation.navigator}</div>
 				<div class="section" style="margin-top: 30px;">
 
-					<div class="container-fluid">
-						<div
-							class="sorting-filters text-center d-flex justify-content-center">
-							<form id="loginform" method="post" class="form-group" action=""
-								style="margin-top: 10px;">
-								<div class="form-group">
-									<input type="text" class="form-control" id="search"
-										name="search" placeholder="" value="${search}">
-								</div>
-								<div class="form-group" align="center">
-									<button type="button" class="btn btn-warning col-md-4"
-										onclick="javascript:pageMove_search(1);">검색</button>
-								</div>
-							</form>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</div>

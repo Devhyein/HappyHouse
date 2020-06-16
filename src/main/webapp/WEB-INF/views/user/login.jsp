@@ -42,7 +42,7 @@
 </head>
 
 <body
-	style="background-image: url('https://previews.123rf.com/images/eugenesergeev/eugenesergeev1712/eugenesergeev171200278/92104077-urban-skyline-with-business-skyscrapers-high-rise-office-buildings-in-city-of-hong-kong-black-and-wh.jpg'); background-size: cover">
+	style="background-image: url('./resources/images/bg.jpg'); background-size: cover">
 
 	<!-- Top content -->
 	<div class="top-content">
