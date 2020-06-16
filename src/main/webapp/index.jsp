@@ -25,10 +25,10 @@
  <c:set var="root" value="${pageContext.request.contextPath }"/>
 <!-- navigation -->
   <!-- Page Content -->
-  <div style="margin:60px 45px 30px 45px">
+  <div style="margin:60px 45px 30px 60px">
     <div class="row">
 
-      <div class="col-lg-3">
+      <div class="col-lg-2 mr-5 ml-2">
 
         <h1 class="my-4"></h1>
         <div class="list-group">
@@ -68,15 +68,16 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div><br>
+        </div>
+         <%@ include file="/WEB-INF/views/house/searchform.jsp"%>
 
-		<h3>실시간 뉴스</h3><br>
+		<h4>실시간 뉴스</h4><br>
         <div class="row">
 		<c:forEach var="newsinfo" items="${newsinfo}">
           <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 150px;"></a>
-              <div class="card-body">
+            <div class="card h-100 bg-dark">
+              <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 200px;"></a>
+              <div class="card-body text-white">
                 <h4 class="card-title">
                   <a href="${newsinfo.headUrl}">${newsinfo.headText}</a>
                 </h4>
