@@ -11,21 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../resources/css/style.css">
-		<script>
-	$(function() {
-		var autocomplete_text = [];
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../resources/css/style.css">
 
-		<c:forEach items="${searchList}" var="list">
-		autocomplete_text.push('${list}');
-		</c:forEach>
-
-		$("#search").autocomplete({
-			source : autocomplete_text
-		});
-	});
 </script>
+
+<style>
+	.customoverlay {position:relative;bottom:75px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+	.customoverlay .title {display:block;text-align:center;background:#1a9c77;padding:10px 15px;font-size:15px;font-weight:bold;color:white;}
+	.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+</style>
+
 
   </head>
   <body>
@@ -104,7 +100,7 @@
 			<script>
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 				mapOption = {
-					center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+					center : new kakao.maps.LatLng(37,126.94), // 지도의 중심좌표
 					level : 6
 				// 지도의 확대 레벨
 				};
@@ -117,21 +113,46 @@
 				geocoder.addressSearch(	loc, function(result, status) {
 									// 정상적으로 검색이 완료됐으면 
 									if (status === kakao.maps.services.Status.OK) {
-										var coords = new kakao.maps.LatLng(
-												result[0].y, result[0].x);
+										var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 										// 결과값으로 받은 위치를 마커로 표시합니다
+										var imageSrc = '${root}/resources/images/selectedHouse.png';  
+										var imageSize = new kakao.maps.Size(70,70); 
+										var imageOption = {offset: new kakao.maps.Point(35, 80)}; 
+						
+										// 마커 이미지를 생성합니다    
+										var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); 
+										var position = new kakao.maps.LatLng(result[0].y, result[0].x);
+										
 										var marker = new kakao.maps.Marker({
-											map : map,
-											position : coords
+											position:position,
+											image:markerImage
 										});
+										
+										marker.setMap(map);
+										
+										
 										// 인포윈도우로 장소에 대한 설명을 표시합니다
+										var content = '<div class="customoverlay"><span class="title">${bunyang.location}</span></div>';
+									    
+										    // 마커를 생성합니다
+										var customOverlay = new kakao.maps.CustomOverlay({
+										    map: map, // 마커를 표시할 지도
+										    position: position, // 마커를 표시할 위치
+										    content: content,
+										    yAnchor: 1
+										});
+										
+									/* 	
 										var infowindow = new kakao.maps.InfoWindow(
 												{
 													content : '<div style="width:150px;text-align:center;padding:6px 0;">${bunyang.location}</div>'
 												});
-										infowindow.open(map, marker);
+										infowindow.open(map, marker); */
 
 										// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										map.setCenter(coords);
+										map.setLevel(5);
+										map.relayout();
 										map.setCenter(coords);
 									}
 								});
