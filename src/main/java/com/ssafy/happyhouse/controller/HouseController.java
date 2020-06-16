@@ -142,12 +142,32 @@ public class HouseController extends HttpServlet {
 		List<HouseInfo> near = service.searchNearHouse(info);
 		
 		//법정동 코드로 인구수 받아오기
-		List<Population> population = popService.getPopulation(deal.getCode());
+		List<Population> population = popService.getPopulation(deal.getCode(), 12);
 		
 		
 		model.addAttribute("deal", deal);
 		model.addAttribute("info", info);
 		model.addAttribute("near", near);
+		model.addAttribute("selected", 12);
+		model.addAttribute("population", population);
+		return "house/houseInfo";
+	}
+	
+	@PostMapping("population_chart_byTime")
+	public String showHouseInfo(int no, int time, Model model) {
+		System.out.println("**********called**********");
+		HouseDeal deal = service.search(no);
+		HouseInfo info = service.searchInfo(deal);
+		List<HouseInfo> near = service.searchNearHouse(info);
+		
+		//법정동 코드로 인구수 받아오기
+		List<Population> population = popService.getPopulation(deal.getCode(), time);
+		
+		
+		model.addAttribute("deal", deal);
+		model.addAttribute("info", info);
+		model.addAttribute("near", near);
+		model.addAttribute("selected", time);
 		model.addAttribute("population", population);
 		return "house/houseInfo";
 	}
@@ -159,11 +179,12 @@ public class HouseController extends HttpServlet {
 		List<HouseInfo> near = service.searchNearHouse(info);
 		
 		//법정동 코드로 인구수 받아오기
-		List<Population> population = popService.getPopulation(deal.getCode());
+		List<Population> population = popService.getPopulation(deal.getCode(), 12);
 				
 		model.addAttribute("deal", deal);
 		model.addAttribute("info", info);
 		model.addAttribute("near", near);
+		model.addAttribute("selected", 12);
 		model.addAttribute("population", population);
 		return "house/houseInfo";
 	}

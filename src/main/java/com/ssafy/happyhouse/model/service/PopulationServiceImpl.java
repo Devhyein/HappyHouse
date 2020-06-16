@@ -18,8 +18,8 @@ public class PopulationServiceImpl implements PopulationService {
 	}
 
 	@Override
-	public List<Population> getPopulation(int code) {
-		return dao.getPopulation(code);
+	public List<Population> getPopulation(int code, int time) {
+		return dao.getPopulation(code, time);
 	}
 	
 	

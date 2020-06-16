@@ -30,7 +30,30 @@
 	.customoverlay .title {display:block;text-align:center;background:#1a9c77;padding:10px 15px;font-size:15px;font-weight:bold;color:white;}
 	.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 </style>
-  
+
+<script>
+function setTime(time){
+	var f = document.createElement('form');
+	f.setAttribute("charset", "UTF-8");
+	f.setAttribute("method", "post");
+	f.setAttribute("action", "${root}/house.do/population_chart_byTime");
+	
+	var hiddenField = document.createElement("input");
+	hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "no");
+    hiddenField.setAttribute("value", parseInt("${deal.no}"));
+    f.appendChild(hiddenField);
+
+	var hiddenField = document.createElement("input");
+	hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "time");
+    hiddenField.setAttribute("value", time);
+    f.appendChild(hiddenField);
+
+	document.body.appendChild(f);
+	f.submit();
+}
+</script>
 
 </head>
 <body>
@@ -178,7 +201,33 @@
 	</br>
 	</br>
 	<div class="container col-md">
-		<h5>주변 인구 정보</h5>
+		<h5>시간대 별 인구 정보</h5>
+		<select name="time" onchange="setTime(this.value);">
+			<option value="0" <c:if test="${selected==0}">selected</c:if>>00시</option>
+			<option value="1" <c:if test="${selected==1}">selected</c:if>>01시</option>
+			<option value="2" <c:if test="${selected==2}">selected</c:if>>02시</option>
+			<option value="3" <c:if test="${selected==3}">selected</c:if>>03시</option>
+			<option value="4" <c:if test="${selected==4}">selected</c:if>>04시</option>
+			<option value="5" <c:if test="${selected==5}">selected</c:if>>05시</option>
+			<option value="6" <c:if test="${selected==6}">selected</c:if>>06시</option>
+			<option value="7" <c:if test="${selected==7}">selected</c:if>>07시</option>
+			<option value="8" <c:if test="${selected==8}">selected</c:if>>08시</option>
+			<option value="9" <c:if test="${selected==9}">selected</c:if>>09시</option>
+			<option value="10" <c:if test="${selected==10}">selected</c:if>>10시</option>
+			<option value="11" <c:if test="${selected==11}">selected</c:if>>11시</option>
+			<option value="12" <c:if test="${selected==12}">selected</c:if>>12시</option>
+			<option value="13" <c:if test="${selected==13}">selected</c:if>>13시</option>
+			<option value="14" <c:if test="${selected==14}">selected</c:if>>14시</option>
+			<option value="15" <c:if test="${selected==15}">selected</c:if>>15시</option>
+			<option value="16" <c:if test="${selected==16}">selected</c:if>>16시</option>
+			<option value="17" <c:if test="${selected==17}">selected</c:if>>17시</option>
+			<option value="18" <c:if test="${selected==18}">selected</c:if>>18시</option>
+			<option value="19" <c:if test="${selected==19}">selected</c:if>>19시</option>
+			<option value="20" <c:if test="${selected==20}">selected</c:if>>20시</option>
+			<option value="21" <c:if test="${selected==21}">selected</c:if>>21시</option>
+			<option value="22" <c:if test="${selected==22}">selected</c:if>>22시</option>
+			<option value="23" <c:if test="${selected==23}">selected</c:if>>23시</option>
+		</select>
 		<canvas id="myChart" style="height:50vh; width:95vw;"></canvas>
 	</div>
 	<!-- Bar Chart -->

@@ -11,6 +11,6 @@ import com.ssafy.happyhouse.model.dto.Population;
 @Repository
 public interface PopulationDao {
 
-	List<Population> getPopulation(int code);
+	List<Population> getPopulation(int code, int time);
 
 }

@@ -9,6 +9,6 @@ import com.ssafy.happyhouse.model.dto.Population;
 @Service
 public interface PopulationService {
 
-	List<Population> getPopulation(int code);
+	List<Population> getPopulation(int code, int time);
 
 }
