@@ -20,9 +20,6 @@
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
   
-   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
-  
   <!-- Chart js CDN -->
   <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -36,7 +33,7 @@
   
 
 </head>
-<body style="background-image: url('resources/images/background.jpg'); background-size:cover">
+<body>
  <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <br/><br/><br/>
 	<div class="row">
@@ -69,7 +66,7 @@
 						var imageSrc = '${root}/resources/images/selectedHouse.png';  
 						var imageSize = new kakao.maps.Size(70,70); 
 						var imageOption = {offset: new kakao.maps.Point(35, 80)}; 
-	
+		
 						// 마커 이미지를 생성합니다    
 						var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); 
 						var position = new kakao.maps.LatLng('${info.lat}', '${info.lng}');
@@ -202,7 +199,7 @@
 		        			"${item.man0_9}","${item.man10_14+item.man15_19}","${item.man20_24+item.man25_29}","${item.man30_34+item.man35_39}",
 		        			"${item.man40_44+item.man45_49}","${item.man50_54+item.man55_59}","${item.man60_64+item.man65_69}","${item.man70}",
 		        		],
-		        		backgroundColor:'rgb(255, 99, 132, 0.4)'
+		        		backgroundColor:'rgb(255, 99, 132, 0.7)'
 		        	},
 		        	{
 		        		label:'Woman',
@@ -210,7 +207,7 @@
 		        			"${item.woman0_9}","${item.woman10_14+item.woman15_19}","${item.woman20_24+item.woman25_29}","${item.woman30_34+item.woman35_39}",
 		        			"${item.woman40_44+item.woman45_49}","${item.woman50_54+item.woman55_59}","${item.woman60_64+item.woman65_69}","${item.woman70}"
 		        		],
-		        		backgroundColor:'rgb(75, 192, 192, 0.4)'
+		        		backgroundColor:'rgb(75, 192, 192, 0.7)'
 		        	}
 		        	</c:forEach>
 		        ]
