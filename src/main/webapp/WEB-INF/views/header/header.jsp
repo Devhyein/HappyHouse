@@ -2,7 +2,10 @@
 <title>SSAFY</title>
 <meta charset="utf-8">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -13,15 +16,6 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
 
-
-<style>
-	ul{
-		   list-style:none;
-		   padding-left:5px;	   
-		   padding-right:5px;	
-		      
-	   }
-</style> 
 </head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -29,25 +23,22 @@
 <!-- nav start -->
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<div class="container">
-		<a class="navbar-brand" href="#">Happy house</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="/happyhouse/index.jsp">Home <!-- <span class="sr-only">(current)</span> -->
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${root}/house.do/main?group=all&pg=1">거래 목록</a></li>				
-				<li class="nav-item active"><a class="nav-link" href="${root}/parcel.do/main?pg=1">분양 목록</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${root}/house.do/streetlamp">안전 지도</a></li>
-				<li class="nav-item active"><a class="nav-link" href="#">QnA</a></li>
-			</ul> 
-			<ul class="navbar-nav ml-auto">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+					<li class="nav-item active">
+                    	<a class="nav-link" href="#">Home</a>
+                	</li>
 				<c:choose>
 					<c:when test="${empty id}">
 						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font>  </a></li>
@@ -59,9 +50,9 @@
 						<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font>  </a></li>
 					</c:otherwise>
 				</c:choose>				
-			</ul>
-		</div>
-	</div>
-</nav>
+			  </ul>
+            </div>
+          </div>
+        </nav>
 
 
