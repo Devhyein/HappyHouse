@@ -90,6 +90,9 @@
 		LIMIT 0,100;]]>
 	</select>
 	
+	<select id="search_groupbyMonth" resultType="java.util.HashMap">
+		select avg(dealAmount) as avgAmount ,count(*) as total from housedeal group by (dealMonth)
+	</select>
 
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -140,6 +141,8 @@ public class HouseController extends HttpServlet {
 		HouseDeal deal = service.search(no);
 		HouseInfo info = service.searchInfo(deal);
 		List<HouseInfo> near = service.searchNearHouse(info);
+		List<HashMap<Double, Integer>> groupByMonth = service.search_groupbyMonth();
+		
 		
 		//법정동 코드로 인구수 받아오기
 		List<Population> population = popService.getPopulation(deal.getCode(), 12);
@@ -150,6 +153,7 @@ public class HouseController extends HttpServlet {
 		model.addAttribute("near", near);
 		model.addAttribute("selected", 12);
 		model.addAttribute("population", population);
+		model.addAttribute("groupByMonth", groupByMonth);
 		return "house/houseInfo";
 	}
 	
@@ -159,6 +163,7 @@ public class HouseController extends HttpServlet {
 		HouseDeal deal = service.search(no);
 		HouseInfo info = service.searchInfo(deal);
 		List<HouseInfo> near = service.searchNearHouse(info);
+		List<HashMap<Double, Integer>> groupByMonth = service.search_groupbyMonth();
 		
 		//법정동 코드로 인구수 받아오기
 		List<Population> population = popService.getPopulation(deal.getCode(), time);
@@ -169,6 +174,7 @@ public class HouseController extends HttpServlet {
 		model.addAttribute("near", near);
 		model.addAttribute("selected", time);
 		model.addAttribute("population", population);
+		model.addAttribute("groupByMonth", groupByMonth);
 		return "house/houseInfo";
 	}
 	
@@ -177,6 +183,7 @@ public class HouseController extends HttpServlet {
 		HouseDeal deal = service.searchByInfo(no);
 		HouseInfo info = service.searchInfo(deal);
 		List<HouseInfo> near = service.searchNearHouse(info);
+		List<HashMap<Double, Integer>> groupByMonth = service.search_groupbyMonth();
 		
 		//법정동 코드로 인구수 받아오기
 		List<Population> population = popService.getPopulation(deal.getCode(), 12);
@@ -186,6 +193,7 @@ public class HouseController extends HttpServlet {
 		model.addAttribute("near", near);
 		model.addAttribute("selected", 12);
 		model.addAttribute("population", population);
+		model.addAttribute("groupByMonth", groupByMonth);
 		return "house/houseInfo";
 	}
 	

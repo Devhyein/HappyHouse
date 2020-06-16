@@ -59,9 +59,10 @@ function setTime(time){
 <body>
  <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <br/><br/><br/>
-	<div class="row">
-		<div class="col-md">
+	<div class="row justify-content-md-center">
+		<div class="col col-md-auto mr-5">
 			<!-- 지도 -->
+			<h5 class="ml-3">지도 정보</h5>
 			<div id="map" style="width: 1000px; height: 500px; margin-left:20px;"></div>
 			<div style="margin-left:20px;margin-top:20px;">
 			<h6>빨간색 마커는 현재 선택된 집을, 까만색 마커는 근처 거래중인 집을 의미합니다~^^*</h6>
@@ -147,20 +148,20 @@ function setTime(time){
 			
 		<!-- 지도 -->
 		</div>
-		<div class="col-md">
-		<h5>상세정보</h5>
+		<div class="col col-md-auto ml-5">
+		<h5>상세 정보</h5>
 		
 		<table class="table col-md">
 			<tbody align="center">
-				<tr class="">
-					<th>Dong</th>
+				<tr class="table-primary">
+					<th>동 이름</th>
 				</tr>
 				<tr>
 					<td>${deal.dong }</td>
 				</tr>
 
-				<tr class="">
-					<th>aptName</th>
+				<tr class="table-primary">
+					<th>아파트 이름</th>
 				</tr>
 				<tr>
 					<td>${deal.aptName }</td>
@@ -169,7 +170,7 @@ function setTime(time){
 				</table>
 				<table class="table col-md">
 			<tbody align="center">
-				<tr class="">
+				<tr class="table-primary">
 					<th>건설년도</th>
 					<th>거래가</th>
 
@@ -178,7 +179,7 @@ function setTime(time){
 					<td>${deal.buildYear }</td>
 					<td>${deal.dealAmount }</td>
 				</tr>
-				<tr class="">
+				<tr class="table-primary">
 					<th>거래일자</th>
 					<th>면적</th>
 				</tr>
@@ -186,7 +187,7 @@ function setTime(time){
 					<td>${deal.dealYear }.${deal.dealMonth }.${deal.dealDay }</td>
 					<td>${deal.area }</td>
 				</tr>
-				<tr class="">
+				<tr class="table-primary">
 					<th>층</th>
 					<th>지번</th>
 				</tr>
@@ -200,37 +201,48 @@ function setTime(time){
 	</div>
 	</br>
 	</br>
-	<div class="container col-md">
-		<h5>시간대 별 인구 정보</h5>
-		<select name="time" onchange="setTime(this.value);">
-			<option value="0" <c:if test="${selected==0}">selected</c:if>>00시</option>
-			<option value="1" <c:if test="${selected==1}">selected</c:if>>01시</option>
-			<option value="2" <c:if test="${selected==2}">selected</c:if>>02시</option>
-			<option value="3" <c:if test="${selected==3}">selected</c:if>>03시</option>
-			<option value="4" <c:if test="${selected==4}">selected</c:if>>04시</option>
-			<option value="5" <c:if test="${selected==5}">selected</c:if>>05시</option>
-			<option value="6" <c:if test="${selected==6}">selected</c:if>>06시</option>
-			<option value="7" <c:if test="${selected==7}">selected</c:if>>07시</option>
-			<option value="8" <c:if test="${selected==8}">selected</c:if>>08시</option>
-			<option value="9" <c:if test="${selected==9}">selected</c:if>>09시</option>
-			<option value="10" <c:if test="${selected==10}">selected</c:if>>10시</option>
-			<option value="11" <c:if test="${selected==11}">selected</c:if>>11시</option>
-			<option value="12" <c:if test="${selected==12}">selected</c:if>>12시</option>
-			<option value="13" <c:if test="${selected==13}">selected</c:if>>13시</option>
-			<option value="14" <c:if test="${selected==14}">selected</c:if>>14시</option>
-			<option value="15" <c:if test="${selected==15}">selected</c:if>>15시</option>
-			<option value="16" <c:if test="${selected==16}">selected</c:if>>16시</option>
-			<option value="17" <c:if test="${selected==17}">selected</c:if>>17시</option>
-			<option value="18" <c:if test="${selected==18}">selected</c:if>>18시</option>
-			<option value="19" <c:if test="${selected==19}">selected</c:if>>19시</option>
-			<option value="20" <c:if test="${selected==20}">selected</c:if>>20시</option>
-			<option value="21" <c:if test="${selected==21}">selected</c:if>>21시</option>
-			<option value="22" <c:if test="${selected==22}">selected</c:if>>22시</option>
-			<option value="23" <c:if test="${selected==23}">selected</c:if>>23시</option>
-		</select>
-		<canvas id="myChart" style="height:50vh; width:95vw;"></canvas>
+	<div class="row justify-content-md-center">
+		<div class="col col-md-auto">
+			<span class="row">
+				<h5 class="col-md-4">시간대 별 인구 정보</h5>
+				<p class="col-md-6">(원하는 시간대를 선택 해 주세요.)</p>
+				<select class="col-md-2" name="time" onchange="setTime(this.value);">
+					<option value="0" <c:if test="${selected==0}">selected</c:if>>00시</option>
+					<option value="1" <c:if test="${selected==1}">selected</c:if>>01시</option>
+					<option value="2" <c:if test="${selected==2}">selected</c:if>>02시</option>
+					<option value="3" <c:if test="${selected==3}">selected</c:if>>03시</option>
+					<option value="4" <c:if test="${selected==4}">selected</c:if>>04시</option>
+					<option value="5" <c:if test="${selected==5}">selected</c:if>>05시</option>
+					<option value="6" <c:if test="${selected==6}">selected</c:if>>06시</option>
+					<option value="7" <c:if test="${selected==7}">selected</c:if>>07시</option>
+					<option value="8" <c:if test="${selected==8}">selected</c:if>>08시</option>
+					<option value="9" <c:if test="${selected==9}">selected</c:if>>09시</option>
+					<option value="10" <c:if test="${selected==10}">selected</c:if>>10시</option>
+					<option value="11" <c:if test="${selected==11}">selected</c:if>>11시</option>
+					<option value="12" <c:if test="${selected==12}">selected</c:if>>12시</option>
+					<option value="13" <c:if test="${selected==13}">selected</c:if>>13시</option>
+					<option value="14" <c:if test="${selected==14}">selected</c:if>>14시</option>
+					<option value="15" <c:if test="${selected==15}">selected</c:if>>15시</option>
+					<option value="16" <c:if test="${selected==16}">selected</c:if>>16시</option>
+					<option value="17" <c:if test="${selected==17}">selected</c:if>>17시</option>
+					<option value="18" <c:if test="${selected==18}">selected</c:if>>18시</option>
+					<option value="19" <c:if test="${selected==19}">selected</c:if>>19시</option>
+					<option value="20" <c:if test="${selected==20}">selected</c:if>>20시</option>
+					<option value="21" <c:if test="${selected==21}">selected</c:if>>21시</option>
+					<option value="22" <c:if test="${selected==22}">selected</c:if>>22시</option>
+					<option value="23" <c:if test="${selected==23}">selected</c:if>>23시</option>
+				</select>
+			</span>
+			<canvas id="myChart" style="height:50vh; width:40vw;"></canvas>
+		</div>
+		
+		<div class="col col-md-auto">
+			<h5>월 별 거래량 정보</h5>
+			<canvas id="dealChart" style="height:50vh; width:40vw;"></canvas>
+		</div>
 	</div>
-	<!-- Bar Chart -->
+	
+	<!-- Population Chart -->
 	<script>
 		// 우선 컨텍스트를 가져옵니다. 
 		var ctx = document.getElementById("myChart").getContext('2d');
@@ -276,7 +288,62 @@ function setTime(time){
 		        }
 		    }
 		});
-		</script>
+	</script>
+	
+	<!-- Deal Chart -->
+	<script>
+		var ctx2 = document.getElementById("dealChart").getContext('2d');
+		
+		var mixedChart = new Chart(ctx2, {
+		    type: 'bar',
+		    data: {
+		        datasets: [{
+		            label: '총 거래 수',
+		            data: [
+		            	"${groupByMonth[0].total}", "${groupByMonth[1].total}", "${groupByMonth[2].total}", "${groupByMonth[3].total}",
+		            	"${groupByMonth[4].total}", "${groupByMonth[5].total}", "${groupByMonth[6].total}", "${groupByMonth[7].total}",
+		            	"${groupByMonth[8].total}", "${groupByMonth[9].total}", "${groupByMonth[10].total}", "${groupByMonth[11].total}"
+		            ],
+		            backgroundColor: 'rgb(75, 192, 192, 0.7)',
+                    borderColor: 'rgb(75, 192, 192, 0.7)',
+		            order: 2,
+		            yAxisID:'total'
+		        }, {
+		            label: '평균 거래금액',
+		            fill:false,
+		            data: [
+		            	"${groupByMonth[0].avgAmount}", "${groupByMonth[1].avgAmount}", "${groupByMonth[2].avgAmount}", "${groupByMonth[3].avgAmount}",
+		            	"${groupByMonth[4].avgAmount}", "${groupByMonth[5].avgAmount}", "${groupByMonth[6].avgAmount}", "${groupByMonth[7].avgAmount}",
+		            	"${groupByMonth[8].avgAmount}", "${groupByMonth[9].avgAmount}", "${groupByMonth[10].avgAmount}", "${groupByMonth[11].avgAmount}"
+		            ],
+		            type: 'line',
+		            backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+		            order: 1,
+		            yAxisID:'avg'
+		        }],
+		        labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		    },
+		    options: {
+		        maintainAspectRatio: true, 
+		        responsive: false,
+		        scales: {
+		            yAxes: [{
+						id:'total',
+						position:'left'
+		            },
+		            {
+		            	id:'avg',
+		            	position:'right',
+		            	ticks:{
+		            		beginAtZero:true
+		            	}
+		            
+		            }]
+		        }
+		    }
+		});
+	</script>
 
  <%@ include file="/WEB-INF/views/footer/footer.jsp"%>
 </body>

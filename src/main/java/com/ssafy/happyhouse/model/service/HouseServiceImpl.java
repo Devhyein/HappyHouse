@@ -1,6 +1,7 @@
 package com.ssafy.happyhouse.model.service;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -153,6 +154,11 @@ public class HouseServiceImpl implements HouseService{
 	@Override
 	public List<HouseInfo> searchNearHouse(HouseInfo info) {
 		return dao.searchNearHouse(info);
+	}
+
+	@Override
+	public List<HashMap<Double, Integer>> search_groupbyMonth() {
+		return dao.search_groupbyMonth();
 	}
 
 //	@Override

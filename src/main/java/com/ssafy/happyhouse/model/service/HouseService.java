@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.model.service;
 
 import java.sql.SQLException;
-
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -63,5 +63,7 @@ public interface HouseService {
 	public HouseInfo searchInfo(HouseDeal deal);
 	//현재 지도에 표시된 집 근처 집들도 표시
 	public List<HouseInfo> searchNearHouse(HouseInfo info);
+
+	public List<HashMap<Double, Integer>> search_groupbyMonth();
 
 }

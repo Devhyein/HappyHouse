@@ -1,6 +1,7 @@
 package com.ssafy.happyhouse.model.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -63,4 +64,6 @@ public interface HouseDao {
 	public HouseInfo searchInfo(HouseDeal deal);
 
 	public List<HouseInfo> searchNearHouse(HouseInfo info);
+
+	public List<HashMap<Double, Integer>> search_groupbyMonth();
 }
