@@ -49,15 +49,13 @@ public class HouseController extends HttpServlet {
 	public void setPopService(PopulationService popService) {
 		this.popService = popService;
 	}
-
+	
 	@GetMapping("/main")
 	public String showMainView(String group, int pg, Model model) {
 		int currentPage = pg;
 		HousePageBean bean = new HousePageBean();
-		int sizePerPage = 10;
+		int sizePerPage = 20;
 		List<HouseDeal> dealList = null;
-		List<String> searchList = service.searchDongList();
-		searchList.addAll(service.searchAptNameList());
 		switch (group) {
 		case "all":
 			boolean[] allB = { true, true, true, true };
@@ -81,7 +79,6 @@ public class HouseController extends HttpServlet {
 			model.addAttribute("dealList", dealList);
 			model.addAttribute("group", group);
 			model.addAttribute("navigation", pageNavigation);
-			model.addAttribute("searchList", searchList);
 
 		} catch (Exception e) {
 			model.addAttribute("msg", "거래 정보 로드 실패");
@@ -95,11 +92,9 @@ public class HouseController extends HttpServlet {
 	@PostMapping("/search_deals")
 	public String searchDeals(String category, String group, String search, int pg, Model model,HousePageBean bean, HttpSession session) {
 		int currentPage = pg;
-		int sizePerPage = 10;
+		int sizePerPage = 20;
 		bean = new HousePageBean();
 		List<HouseDeal> dealList = null;
-		List<String> searchList = service.searchDongList();
-		searchList.addAll(service.searchAptNameList());
 		switch (group) {
 		case "all":
 			boolean[] allB = { true, true, true, true };
@@ -132,7 +127,6 @@ public class HouseController extends HttpServlet {
 			model.addAttribute("dealList", dealList);
 			model.addAttribute("navigation", pageNavigation);
 			model.addAttribute("group", group);
-			model.addAttribute("searchList", searchList);
 		} catch (Exception e) {
 			model.addAttribute("msg", "거래 정보 로드 실패");
 			return "error";

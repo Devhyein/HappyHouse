@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
+
+	
 <script type="text/javascript">
 	function pageMove_search(pg) {
 		document.getElementById("pg").value = pg;
@@ -21,9 +23,25 @@
 	}
 </script>
 
+<script>
+	
+	$(function() {
+		var autocomplete_text = [];
+		<c:forEach items="${searchList}" var="list">
+			autocomplete_text.push("${list}");
+		</c:forEach>
+		$( "#search" ).autocomplete({
+			source: function(request, response){
+				var results = $.ui.autocomplete.filter(autocomplete_text, request.term);
+				response(results.slice(0,10));
+			}
+		});
+	});
+	
+</script>
+
 
 <div class="section" style="margin-bottom: 10px;">
-		
 			<div class="container-fluid">
 				<div
 					class="sorting-filters text-center d-flex justify-content-center">

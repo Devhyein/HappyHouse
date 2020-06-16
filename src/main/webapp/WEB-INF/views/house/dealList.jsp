@@ -37,10 +37,6 @@
 	}
 </script>
 
-<!-- jquery autocomplete -->	
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
 
 <script>
 $(function() {
@@ -99,9 +95,9 @@ $(function() {
 						<div class="form-group row">
 						<div class="form-group">
 							<input type="text" class="form-control" id="search" name="search"
-								placeholder="" value="${search}" style="width:500px">
+								placeholder="검색하실 동 혹은 아파트 이름을 입력해주세요." value="${search}" style="width:500px">
 						</div>
-						<div class="form-group" align="center">
+						<div class="form-group ml-2" align="center">
 							<button type="button" class="btn btn-warning"
 								onclick="javascript:pageMove_search(1);">검색</button>
 						</div>
