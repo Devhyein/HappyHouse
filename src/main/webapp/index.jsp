@@ -1,83 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-
-<html>
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Happy House</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="/resources/css/shop-homepage.css" rel="stylesheet">
-  
-
-</head>
-<body> 
- <%@ include file="/WEB-INF/views/header/header.jsp"%>
  <c:set var="root" value="${pageContext.request.contextPath }"/>
-<!-- navigation -->
-  <!-- Page Content -->
-  <div style="margin:60px 45px 30px 60px">
-    <div class="row">
 
-      <div class="col-lg-2 mr-5 ml-2">
+<!doctype html>
+<html>
+  <head>
+  	<title>HappyHouse</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <h1 class="my-4"></h1>
-        <div class="list-group">
-          <a href="${root}/house.do/main?group=all&pg=1" class="list-group-item">거래 목록</a>
-          <a href="${root}/parcel.do/main?pg=1" class="list-group-item">분양 목록</a>
-          <a href="${root}/house.do/streetlamp" class="list-group-item">안전 지도</a>
-          <a href="#" class="list-group-item">QnA</a>
-        </div>
-
-      </div>
-      <!-- /.col-lg-3 -->
-      <div class="col-lg-9" >
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
-	  
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="resources/images/bg1.jpg" style="width: 100%; height: 350px;" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="resources/images/bg2.jpeg" style="width: 100%; height: 350px;" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="resources/images/bg3.jpeg" style="width: 100%; height: 350px;" alt="Third slide">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="resources/css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(resources/images/logo.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Home</a>
+	          </li>
+	          <li>
+	              <a href="${root}/house.do/main?group=all&pg=1">거래 목록</a>
+	          </li>
+	          <li>
+<!--               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"></a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul> -->
+	          </li>
+	          <li>
+              <a href="${root}/parcel.do/main?pg=1">분양 정보</a>
+	          </li>
+	          <li>
+              <a href="${root}/house.do/streetlamp">안전 지도</a>
+	          </li>
+	          <li>
+              <a href="#">QnA</a>
+	          </li>
+	        </ul>
+	
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  SSAFY &copy;<script>document.write(new Date().getFullYear());</script> This site is made <i class="icon-heart" aria-hidden="true"></i> by<br><a href="https://edu.ssafy.com" target="_blank">서울_8반_9조</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+	
+        <!-- Page Content  -->
+      <div id="content" class="p-5 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+					<li class="nav-item active">
+                    	<a class="nav-link" href="#">Home</a>
+                	</li>
+				<c:choose>
+					<c:when test="${empty id}">
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font>  </a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
+					</c:when>
+				
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform"><font size="2em">회원 정보</font></a></li>
+						<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font>  </a></li>
+					</c:otherwise>
+				</c:choose>				
+			  </ul>
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+        </nav>
+
+        <div class="row">
+      <div class="col-lg-12" >
+		
+        <div class="container">
+        	<br><br>
+	        <%@ include file="/WEB-INF/views/house/searchform.jsp"%>
+	        <br><br>
         </div>
-         <%@ include file="/WEB-INF/views/house/searchform.jsp"%>
 
 		<h4>실시간 뉴스</h4><br>
         <div class="row">
 		<c:forEach var="newsinfo" items="${newsinfo}">
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100 bg-dark">
-              <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 200px;"></a>
+              <a href="${newsinfo.headUrl}"><img class="card-img-top" src="${newsinfo.image}" alt="" style="width: 100%; height: 120px;"></a>
               <div class="card-body text-white">
                 <h4 class="card-title">
                   <a href="${newsinfo.headUrl}">${newsinfo.headText}</a>
@@ -94,12 +128,10 @@
     </div>
     <!-- /.row -->
   </div>
-  <!-- /.container -->
-<%@ include file="/WEB-INF/views/footer/footer.jsp"%>
-  <!-- Bootstrap core JavaScript -->
-<!--   <script src="vendor/jquery/jquery.min.js"></script> 
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
--->
-</body>
-
+</div>
+    <script src="resources/js/jquery.min.js"></script>
+    <script src="resources/js/popper.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/main.js"></script>
+  </body>
 </html>
