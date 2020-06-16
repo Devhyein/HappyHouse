@@ -28,7 +28,7 @@ footer {
 <title>회원 정보 확인</title>
 <style type="text/css">
 section {
-	background-color: #e0e0eb;
+	background-color: rgba(108, 117, 125, 0.2);
 	width: 70%;
 	height: 70%;
 	padding: 10% 10% 10% 10%;
@@ -41,8 +41,8 @@ section {
 }
 table{
 	float: center;
-	background-color: #e0e0eb;
-	width: 70%;
+	background-color: rgba(108, 117, 125, 0.2);
+	width: 100%;
 	height: 70%;
 	padding: 10% 10% 10% 10%;
 	margin: 10% 10% 10% 10%;

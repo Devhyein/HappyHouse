@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="resources/assets/css/style.css">
 <style>
 section {
-	background-color: #e0e0eb;
+	background-color: rgba(108, 117, 125, 0.2);
 	width: 70%;
 	height: 70%;
 	margin: 10% 10% 10% 10%;
