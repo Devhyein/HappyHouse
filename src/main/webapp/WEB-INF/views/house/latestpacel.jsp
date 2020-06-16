@@ -39,7 +39,7 @@
 		<nav id="sidebar">
 			<div class="p-4 pt-5">
 				<a href="#" class="img logo rounded-circle mb-5"
-					style="background-image: url(resources/images/logo.jpg);"></a>
+					style="background-image: url(../resources/images/logo.jpg);"></a>
 				<ul class="list-unstyled components mb-5">
 						          <li class="active">
 	            <a href="${root}/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Happy House</a>
