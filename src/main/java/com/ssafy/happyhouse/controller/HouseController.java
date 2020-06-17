@@ -201,15 +201,6 @@ public class HouseController extends HttpServlet {
 	@GetMapping("/streetlamp")
 	public String showLampMap(Model model) {
 		//데이터 가져오기
-		List<Lamp> lamp = lampService.selectAll();
-		List<DongArea> graph = lampService.CountLamp();
-		for (DongArea dongArea : graph) {
-			dongArea.setSize(dongArea.getLampCnt()/dongArea.getArea());
-			if(dongArea.getSize()<10)
-				dongArea.setSize(20);
-		}
-		model.addAttribute("lamp", lamp);
-		model.addAttribute("graph",graph);
 		return "lampMap";
 	}
 	
