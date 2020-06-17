@@ -239,8 +239,8 @@ function setTime(time){
 		<div class="col col-md-auto">
 			<div class="row">
 				<h5 class="col-md-4">시간 별 인구 정보</h5>
-				<p class="col-md-6">(원하는 시간을 선택 해 주세요.)</p>
-				<select class="col-md-2" name="time" onchange="setTime(this.value);">
+				<p class="col-md-5 ml-3">(원하는 시간을 선택 해 주세요.)</p>
+				<select class="col-md-2 " name="time" onchange="setTime(this.value);">
 					<option value="0" <c:if test="${selected==0}">selected</c:if>>00시</option>
 					<option value="1" <c:if test="${selected==1}">selected</c:if>>01시</option>
 					<option value="2" <c:if test="${selected==2}">selected</c:if>>02시</option>
@@ -269,7 +269,6 @@ function setTime(time){
 			</div>
 			<canvas id="myChart" style="height:50vh; width:35vw;"></canvas>
 		</div>
-		<br><br>
 		<div class="col col-md-4">
 			<h5>월 별 거래량 정보</h5>
 			<canvas id="dealChart" style="height:50vh; width:35vw;"></canvas>
@@ -295,20 +294,20 @@ function setTime(time){
 		        datasets:[
 		        	<c:forEach items="${population}" var="item" varStatus="status">
 		        	{
-		        		label:'Man',
+		        		label:'남성',
 		        		data:[
 		        			"${item.man0_9}","${item.man10_14+item.man15_19}","${item.man20_24+item.man25_29}","${item.man30_34+item.man35_39}",
 		        			"${item.man40_44+item.man45_49}","${item.man50_54+item.man55_59}","${item.man60_64+item.man65_69}","${item.man70}",
 		        		],
-		        		backgroundColor:'rgb(255, 99, 132, 0.7)'
+		        		backgroundColor:'rgb(75, 192, 192, 0.7)'
 		        	},
 		        	{
-		        		label:'Woman',
+		        		label:'여성',
 		        		data:[
 		        			"${item.woman0_9}","${item.woman10_14+item.woman15_19}","${item.woman20_24+item.woman25_29}","${item.woman30_34+item.woman35_39}",
 		        			"${item.woman40_44+item.woman45_49}","${item.woman50_54+item.woman55_59}","${item.woman60_64+item.woman65_69}","${item.woman70}"
 		        		],
-		        		backgroundColor:'rgb(75, 192, 192, 0.7)'
+		        		backgroundColor:'rgb(255, 99, 132, 0.7)'
 		        	}
 		        	</c:forEach>
 		        ]
@@ -319,7 +318,10 @@ function setTime(time){
 		        scales: {
 		            yAxes: [{
 		                ticks: {
-		                    beginAtZero:true
+		                    beginAtZero:true,
+		                    callback: function(value,index, values){
+		            			return value+"명";
+		            		}
 		                }
 		            }]
 		        }
@@ -367,7 +369,13 @@ function setTime(time){
 		        scales: {
 		            yAxes: [{
 						id:'total',
-						position:'left'
+						position:'left',
+						ticks:{
+		            		beginAtZero:true,
+		            		callback: function(value,index, values){
+		            			return value+"건";
+		            		}
+		            	}
 		            },
 		            {
 		            	id:'avg',
