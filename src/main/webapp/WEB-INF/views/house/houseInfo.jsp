@@ -373,9 +373,12 @@ function setTime(time){
 		            	id:'avg',
 		            	position:'right',
 		            	ticks:{
-		            		beginAtZero:true
-		            	}
-		            
+		            		beginAtZero:true,
+		            		callback: function(value,index, values){
+		            			return value+"천만";
+		            		}
+		            	},
+		            	
 		            }]
 		        }
 		    }
