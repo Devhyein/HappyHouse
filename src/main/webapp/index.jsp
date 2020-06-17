@@ -8,15 +8,9 @@
 <head>
 <title>HappyHouse</title>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/css/style.css">
 <script type="text/javascript">
 	function pageMove(pg) {
@@ -44,7 +38,7 @@
 		var category = document.getElementById("category");
 		var c = category.options[category.selectedIndex].value;
 
-		document.getElementById("loginform").action = "${root}/house.do/search_deals?pg=" + pg;
+		document.getElementById("loginform").action = "${root}/house.do/main?group=" + g + "&pg=" + pg;
 		document.getElementById("loginform").submit();
 	}
 </script>
@@ -72,31 +66,13 @@ $(function() {
 				<div class="p-4 pt-5">
 		  		<a href="/happyhouse/index.jsp" class="img logo rounded-circle mb-5" style="background-image: url(resources/images/logo.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-	            <a href="${root}/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Happy House</a>
-	          </li>
-	          <li>
-	              <a href="/happyhouse/index.jsp">Home</a>
-	          </li>
-					<li><a href="${root}/house.do/main?group=all&pg=1">거래 목록</a></li>
-					<li>
-						<!--               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"></a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-              </ul> -->
-					</li>
-					<li><a href="${root}/parcel.do/main?pg=1">분양 정보</a></li>
-					<li><a href="${root}/house.do/streetlamp">안전 지도</a></li>
-					<li><a href="#">QnA</a></li>
-				</ul>
+	          <li class="active"><a href="${root}/happyhouse/index.jsp" data-toggle="collapse" aria-expanded="false">Happy House</a></li>
+	          <li><a href="/happyhouse/index.jsp">Home</a></li>
+			  <li><a href="${root}/house.do/main?group=all&pg=1">거래 목록</a></li>
+			  <li><a href="${root}/parcel.do/main?pg=1">분양 정보</a></li>
+			  <li><a href="${root}/house.do/streetlamp">안전 지도</a></li>
+			  <li><a href="#">QnA</a></li>
+			</ul>
 
 				<div class="footer">
 					<p>
@@ -117,8 +93,7 @@ $(function() {
 				<div class="container-fluid">
 
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-						<i class="fa fa-bars"></i> <span class="sr-only">Toggle
-							Menu</span>
+						<i class="fa fa-bars"></i> <span class="sr-only">ToggleMenu</span>
 					</button>
 					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
 						type="button" data-toggle="collapse"
@@ -134,19 +109,13 @@ $(function() {
 								href="/happyhouse/index.jsp">Home</a></li>
 							<c:choose>
 								<c:when test="${empty id}">
-									<li class="nav-item"><a class="nav-link"
-										href="${root}/user.do/loginform"><font size="2em">로그인</font>
-									</a></li>
-									<li class="nav-item"><a class="nav-link"
-										href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
+									<li class="nav-item"><a class="nav-link" href="${root}/user.do/loginform"><font size="2em">로그인</font></a></li>
+									<li class="nav-item"><a class="nav-link" href="${root}/user.do/registform"><font size="2em">회원가입</font></a></li>
 								</c:when>
 
 								<c:otherwise>
-									<li class="nav-item"><a class="nav-link"
-										href="${root}/user.do/userinfoform"><font size="2em">회원
-												정보</font></a></li>
-									<li class="nav-item"><a class="nav-link" href="${root}/"><font
-											size="2em">로그아웃</font> </a></li>
+									<li class="nav-item"><a class="nav-link" href="${root}/user.do/userinfoform"><font size="2em">회원 정보</font></a></li>
+									<li class="nav-item"><a class="nav-link" href="${root}/"><font size="2em">로그아웃</font> </a></li>
 								</c:otherwise>
 							</c:choose>
 						</ul>
@@ -156,7 +125,6 @@ $(function() {
 
 			<div class="row">
 				<div class="col-lg-12">
-
 					<div class="col-lg-12">
 						<br>
 						<br>
