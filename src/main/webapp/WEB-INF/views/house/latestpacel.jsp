@@ -68,7 +68,7 @@
 		</nav>
 		<!-- 메인 페이지 내용  -->
 		<div id="content" class="p-5 p-md-5">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgba(255, 206, 86, 0.2)">
 				<div class="container-fluid">
 
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -147,7 +147,7 @@
 					</c:forEach>
 					<div class="text-center">${navigation.navigator}</div>
 				</div>
-
+			  </div>
 			</div>
 		</div>
 		<script src="../resources/js/jquery.min.js"></script>

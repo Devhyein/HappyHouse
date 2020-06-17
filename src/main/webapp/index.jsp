@@ -89,7 +89,7 @@ $(function() {
 		</nav>
 		<!-- 메인 페이지 내용  -->
 		<div id="content" class="p-5 p-md-5">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgba(255, 206, 86, 0.2)">
 				<div class="container-fluid">
 
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -126,14 +126,12 @@ $(function() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="col-lg-12">
-						<br>
-						<br>
 						<div class="section" style="margin-bottom: 30px;">
 		
 			<div class="container-fluid">
 				<div
 					class="sorting-filters text-center d-flex justify-content-center">
-					<form id="loginform" method="post" class="form-group" action="" style="margin-top:10px;">
+					<form id="loginform" method="post" class="form-group" action="" style="margin-top:8px;">
 						<div class="form-group">
 							<input type="hidden" name="pg" id="pg" value="">
 							<div class="radio text-muted">
@@ -179,16 +177,14 @@ $(function() {
 				</div>
 			</div>
 		</div>
-						<br>
-						<br>
 					</div>
 
-					<h4>실시간 뉴스</h4>
+					<h4 sytle="color:yellow">실시간 뉴스</h4>
 					<br>
 					<div class="row">
 						<c:forEach var="newsinfo" items="${newsinfo}">
 							<div class="col-lg-3 col-md-6 mb-4">
-								<div class="card h-100 bg-dark">
+								<div class="card h-100" style="background-color:rgba(108, 117, 125, 0.8)">
 									<a href="${newsinfo.headUrl}"><img class="card-img-top"
 										src="${newsinfo.image}" alt=""
 										style="width: 100%; height: 120px;"></a>
